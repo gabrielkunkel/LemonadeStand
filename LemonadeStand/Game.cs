@@ -8,8 +8,11 @@ namespace LemonadeStand
 {
     public class Game
     {
+      Player player;
+      List<Day> days;
+      int currentDay;
 
-    public int TestVariable = 5;
+      
 
 
     }

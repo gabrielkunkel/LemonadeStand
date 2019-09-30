@@ -11,7 +11,7 @@ namespace Lemonade_Stand_Tests
     public void InitialCheck_TestsWorking_GameClass()
     {
       Game testGame = new Game();
-      Assert.AreEqual(5, testGame.TestVariable);
+      
 
     }
   }
