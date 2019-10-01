@@ -6,15 +6,46 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-  class CustomerFactory
+  public class CustomerFactory
   {
-    int numberOfCustomers;
+    readonly int numberOfCustomers = 100; // todo: make numberOfCustomers change
+    Dictionary<string, double> probabilityOfWeatherEnjoyment = new Dictionary<string, double>();
+    RandomGenerator randomGenerator = new RandomGenerator();
 
-     // produce customers
+    public CustomerFactory()
+    {
+      probabilityOfWeatherEnjoyment.Add("warm", 0.48);
+      probabilityOfWeatherEnjoyment.Add("hot", 0.58);
+      probabilityOfWeatherEnjoyment.Add("rain", 0.10);
+      probabilityOfWeatherEnjoyment.Add("cold", 0.02);
+      probabilityOfWeatherEnjoyment.Add("sunny", 0.67);
+      probabilityOfWeatherEnjoyment.Add("cloudy", 0.18);
+    }
 
-    // m determine what this customers lemonadeSpendableMoney is
+    public List<Customer> ProduceCustomers()
+    {
+      List<Customer> customers = new List<Customer>();
+      for (int i = 0; i < this.numberOfCustomers; i += 1)
+      {
+        customers.Add(ProduceRandomCustomer());
+      }
+      return customers;
+    }
 
-    // m determine the weatherConditions this customer prefers
+    public virtual Customer ProduceRandomCustomer()
+    {
+      return new Customer(GetLemonadeSpendableMoney(), GetListOfPreferredWeatherConditions());
+    }
+
+    private double GetLemonadeSpendableMoney()
+    {
+      return randomGenerator.GetRandomSpendingMoney(0.20);
+    }
+    private List<string> GetListOfPreferredWeatherConditions()
+    {
+      return randomGenerator.GetDictionaryStringOnProbability(probabilityOfWeatherEnjoyment);
+    }
+ 
 
   }
 }

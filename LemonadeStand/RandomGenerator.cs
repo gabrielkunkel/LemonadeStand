@@ -25,8 +25,29 @@ namespace LemonadeStand
     public double GetRandomSpendingMoney(double startAmount)
     {
       double input = random.NextDouble() + startAmount;
+      // returns less than one dollar + the starting amount to 2 decimal places
       return Math.Round(input, 2, MidpointRounding.AwayFromZero);
     }
+
+    public List<string> GetDictionaryStringOnProbability(Dictionary<string, double> dictionaryToProcess)
+    {
+      List<string> listOfAcceptedStrings = new List<string>();
+      double comparator;
+
+      foreach (KeyValuePair<string, double> keyValuePair in dictionaryToProcess)
+      {
+        comparator = random.NextDouble();
+        if (comparator < keyValuePair.Value)
+        {
+          listOfAcceptedStrings.Add(keyValuePair.Key);
+        }
+
+      }
+      return listOfAcceptedStrings;
+    }
+    
+
+
 
   }
 }

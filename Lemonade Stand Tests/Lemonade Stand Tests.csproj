@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CutsomerSpec.cs" />
     <Compile Include="RandomGeneratorSpec.cs" />
+    <Compile Include="CustomerFactorySpec.cs" />
     <Compile Include="WeatherSpec.cs" />
   </ItemGroup>
   <ItemGroup>
