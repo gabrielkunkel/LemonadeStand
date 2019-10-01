@@ -22,5 +22,11 @@ namespace LemonadeStand
       return anyStringList[randomInt];
     }
 
+    public double GetRandomSpendingMoney(double startAmount)
+    {
+      double input = random.NextDouble() + startAmount;
+      return Math.Round(input, 2, MidpointRounding.AwayFromZero);
+    }
+
   }
 }

@@ -8,10 +8,11 @@ namespace LemonadeStand
 {
   class CustomerFactory
   {
+    int numberOfCustomers;
+
+     // produce customers
 
     // m determine what this customers lemonadeSpendableMoney is
-      // m random generation
-
 
     // m determine the weatherConditions this customer prefers
 

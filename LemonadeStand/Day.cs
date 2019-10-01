@@ -6,8 +6,5 @@ namespace LemonadeStand
   {
     public Weather weather;
     public List<Customer> customers;
-
-    // m generate customers for the day 
-
   }
 }

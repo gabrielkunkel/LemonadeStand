@@ -29,7 +29,7 @@ namespace LemonadeStand
       return lemonadeCupPrice <= lemonadeSpendableMoney;
     }
 
-    public int HowManyCupsWillCustomerPurchase(double lemonadeCupPrice)
+  public int HowManyCupsWillCustomerPurchase(double lemonadeCupPrice)
     {
       if (!WillPurchase(lemonadeCupPrice))
       {
