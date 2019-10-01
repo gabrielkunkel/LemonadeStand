@@ -22,9 +22,5 @@ namespace LemonadeStand
       return anyStringList[randomInt];
     }
 
-    
-
-
-
   }
 }

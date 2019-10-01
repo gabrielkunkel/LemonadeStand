@@ -26,14 +26,7 @@ namespace LemonadeStand
 
   public bool WillPurchase(double lemonadeCupPrice)
     {
-      if (lemonadeCupPrice <= lemonadeSpendableMoney)
-      {
-        return true;
-      }
-      else
-      {
-        return false;
-      }
+      return lemonadeCupPrice <= lemonadeSpendableMoney;
     }
 
     public int HowManyCupsWillCustomerPurchase(double lemonadeCupPrice)

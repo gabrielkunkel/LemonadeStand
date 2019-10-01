@@ -10,7 +10,7 @@ namespace Lemonade_Stand_Tests
   public class RandomGeneratorSpec
   {
     [TestMethod]
-    public void GetRandomListMember_ListOfStrings_()
+    public void GetRandomListMember_ListOfStrings()
     {
       // Arrange
       List<string> strings = new List<string> { "red", "yellow", "green" };
@@ -26,7 +26,8 @@ namespace Lemonade_Stand_Tests
 
       // Assert
       Assert.AreEqual(expected, result);
-
     }
+
+
   }
 }
