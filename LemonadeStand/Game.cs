@@ -12,13 +12,18 @@ namespace LemonadeStand
       List<Day> days;
       int currentDay;
 
-    // todo: public void RunGame
+      public Game()
+      {
 
-    // todo: days
-    // todo: Determine sales for the day
-      // cycle through list and judge whether purchase & how much
-      // add money to wallet
-    // todo: gameLoop
+      }
+
+      // todo: public void RunGame
+      
+      // todo: days
+      // todo: Determine sales for the day
+        // cycle through list and judge whether purchase & how much
+        // add money to wallet
+      // todo: gameLoop
 
       
 
