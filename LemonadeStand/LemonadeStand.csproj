@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerFactory.cs" />
+    <Compile Include="Pitcher.cs" />
     <Compile Include="RandomGenerator.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Day.cs" />
