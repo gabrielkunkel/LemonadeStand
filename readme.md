@@ -22,7 +22,7 @@ As a developer, if I don’t know what Lemonade Stand game is, I will play the gam
 
 (10 points): As a developer, I want to implement the SOLID design principles as well as C# best practices in my project, so that the project is as well-designed as possible.
 
-(10 points (5 points each)): As a developer, I want to pinpoint at least two placeswhere I used one of the SOLID design principles and discuss my reasoning, so that I can properly understand good code design. Minimum of two SOLID design principlesmust be used. 
+(10 points (5 points each)): As a developer, I want to pinpoint at least two placeswhere I used one of the SOLID design principles and discuss my reasoning, so that I can properly understand good code design. Minimum of two SOLID design principles must be used. 
 
 Bonus Points:
 

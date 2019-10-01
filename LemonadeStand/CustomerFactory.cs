@@ -10,7 +10,8 @@ namespace LemonadeStand
   {
 
     // m determine what this customers lemonadeSpendableMoney is
-      // m generate an amount of money randomly for a customer wallet
+      // m random generation
+
 
     // m determine the weatherConditions this customer prefers
 

@@ -6,12 +6,21 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-  class RandomGenerator
+  public class RandomGenerator
   {
+    private readonly Random random;
 
-    // m static method which produces a random selection from a list argument
 
-    // m private method of rolling the dice for random selection
+    public RandomGenerator(Random random = default(Random))
+    {
+      this.random = random ?? new Random(Guid.NewGuid().GetHashCode());
+    }
+
+    public string GetRandomListMember(List<string> anyStringList)
+    {
+      int randomInt = random.Next(anyStringList.Count);
+      return anyStringList[randomInt];
+    }
 
     
 
