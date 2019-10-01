@@ -32,6 +32,7 @@ namespace LemonadeStand
       return customers;
     }
 
+    // todo: convert this and test to private method
     public virtual Customer ProduceRandomCustomer()
     {
       return new Customer(GetLemonadeSpendableMoney(), GetListOfPreferredWeatherConditions());
