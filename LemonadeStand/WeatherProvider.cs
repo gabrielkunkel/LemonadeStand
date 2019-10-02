@@ -8,18 +8,18 @@ namespace LemonadeStand
 {
   class WeatherProvider
   {
-    public List<Weather> weatherConditions;
+    public List<Weather> weatherConditions = new List<Weather>();
 
     public WeatherProvider()
     {
-      this.weatherConditions = new List<Weather>();
+      BuildWeatherList();
     }
 
     // todo: add in randomGenerator and pick which whether we're going to have based on probability
-    private Weather getWeather()
+    public Weather GetWeather()
     {
-
-      return new Weather();
+      RandomGenerator randomGenerator = new RandomGenerator();
+      return randomGenerator.GetRandomListMember(weatherConditions);
     }
 
     private void BuildWeatherList()
