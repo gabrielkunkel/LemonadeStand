@@ -7,10 +7,18 @@
     Day currentDay;
     int dayNumber;
 
+    public Game()
+    {
+      this.totalDays = 7;
+      this.player = new Player();
+    }
+
     public Game(int totalDays)
     {
       this.totalDays = totalDays;
       this.player = new Player();
+
+
     }
 
     // todo: public void RunGame
@@ -19,7 +27,7 @@
     // todo: gameLoop
       // increment dayNumber
       // create new day
-      // check to see how many customers buy and how much
+      // add money to cashRegister
 
 
 
