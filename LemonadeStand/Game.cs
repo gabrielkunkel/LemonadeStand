@@ -4,7 +4,8 @@
   {
     Player player;
     int totalDays;
-    int currentDay;
+    Day currentDay;
+    int dayNumber;
 
     public Game(int totalDays)
     {
@@ -16,6 +17,9 @@
 
     // todo: days
     // todo: gameLoop
+      // increment dayNumber
+      // create new day
+      // check to see how many customers buy and how much
 
 
 
