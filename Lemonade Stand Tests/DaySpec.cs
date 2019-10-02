@@ -50,7 +50,41 @@ namespace Lemonade_Stand_Tests
       Assert.AreEqual(0, result);
     }
 
-    // todo: add test for varying customers
+    [TestMethod]
+    public void DetermineTodaySales_VaryingCustomers()
+    {
+      // Arrange Weather Lists
+      List<Weather> weatherListFirstCustomer = new List<Weather>();
+      weatherListFirstCustomer.Add(new Weather("slushy", 10, .80));
+      weatherListFirstCustomer.Add(new Weather("slimey", 10, .80));
+      weatherListFirstCustomer.Add(new Weather("gunky", 10, .80));
 
+      List<Weather> weatherListSecondCustomer = new List<Weather>();
+      weatherListSecondCustomer.Add(new Weather("slushy", 10, .80));
+      weatherListSecondCustomer.Add(new Weather("mucky", 10, .80));
+      weatherListSecondCustomer.Add(new Weather("slunky", 10, .80));
+
+      List<Weather> weatherListThirdCustomer = new List<Weather>();
+      weatherListThirdCustomer.Add(new Weather("slushy", 10, .80));
+      weatherListThirdCustomer.Add(new Weather("doofy", 10, .80));
+      weatherListThirdCustomer.Add(new Weather("funky", 10, .80));
+
+      // Arrange Customers
+      Day today = new Day();
+      today.weatherToday = new Weather("slushy", 60, 1);
+      today.customers = new List<Customer>();
+      today.customers.Add(new Customer(0.50, weatherListFirstCustomer));
+      today.customers.Add(new Customer(1.05, weatherListSecondCustomer));
+      today.customers.Add(new Customer(0.40, weatherListThirdCustomer));
+      today.customers.Add(new Customer(20.00));
+      today.customers.Add(new Customer(20.00));
+
+      // Act
+      double result = today.DetermineTodaySales(0.35);
+
+
+      // Assert
+      Assert.AreEqual(1.75, result);
+    }
   }
 }

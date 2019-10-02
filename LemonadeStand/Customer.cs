@@ -11,7 +11,7 @@ namespace LemonadeStand
     public Customer()
     {
       this.lemonadeSpendableMoney = 0.50;
-      this.preferredWeatherConditions.Add(new Weather("clear", 72.8, 0.50));
+      this.preferredWeatherConditions.Add(new Weather());
     }
 
     public Customer(double lemonadeSpendableMoney)
