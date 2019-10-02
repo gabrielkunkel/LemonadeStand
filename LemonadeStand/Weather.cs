@@ -12,8 +12,8 @@ namespace LemonadeStand
     public Weather()
     {
       this.condition = "clear"; // api: "Main"
-      this.temperature = 60.0;
-      this.probOfWeatherEnjoyment = .40;
+      this.temperature = 72.8;
+      this.probOfWeatherEnjoyment = .50;
     }
 
     public Weather(string condition, double temperature, double probOfWeatherEnjoyment)

@@ -4,13 +4,18 @@ namespace LemonadeStand
 {
   public class CustomerFactory
   {
-    readonly int numberOfCustomers = 100; // todo: make numberOfCustomers change
+    int numberOfCustomers;
     RandomGenerator randomGenerator = new RandomGenerator();
     WeatherProvider weatherProvider = new WeatherProvider();
 
     public CustomerFactory()
     {
- 
+      this.numberOfCustomers = 100;
+    }
+
+    public CustomerFactory(int numberOfCustomers)
+    {
+      this.numberOfCustomers = numberOfCustomers;
     }
 
     public List<Customer> ProduceCustomers()

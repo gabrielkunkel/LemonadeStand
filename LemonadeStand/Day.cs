@@ -20,7 +20,31 @@ namespace LemonadeStand
 
     public double DetermineTodaySales(double costOfLemonadeCup)
     {
-      return 0.0000;
+      int cupsToBuy = 0;
+      foreach (var item in customers)
+      {
+        // todo: switch this to checking 
+        if (CheckWeatherConditionsContained(item.preferredWeatherConditions))
+        {
+          cupsToBuy += item.HowManyCupsWillCustomerPurchase(costOfLemonadeCup);
+        }
+
+      }
+
+      return cupsToBuy*costOfLemonadeCup;
+    }
+
+    public bool CheckWeatherConditionsContained(List<Weather> weatherConditions)
+    {
+      foreach (var item in weatherConditions)
+      {
+        if (item.condition == this.weatherToday.condition)
+        {
+          return true;
+        }
+      }
+
+      return false;
     }
 
     private void DetermineWeather()
