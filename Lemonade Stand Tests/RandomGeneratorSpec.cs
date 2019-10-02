@@ -75,5 +75,37 @@ namespace Lemonade_Stand_Tests
       CollectionAssert.AreEqual(expected, result);
     }
 
+    [TestMethod]
+    public void GetObjectOnProbabilityFormList_WeatherObjects()
+    {
+      // Arrange Object List
+      List<Weather> weatherConditions = new List<Weather>();
+      weatherConditions.Add(new Weather("Thunderstorm", 52.7, 0.06));
+      weatherConditions.Add(new Weather("Drizzle", 56.3, 0.12));
+      weatherConditions.Add(new Weather("Rain", 57.2, 0.10));
+      weatherConditions.Add(new Weather("Snow", 43.9, 0.02));
+      weatherConditions.Add(new Weather("Clear", 70.3, 0.70));
+      weatherConditions.Add(new Weather("Clouds", 62.4, 0.24));
+
+      // Arrange Mock
+      double numberGenerated = 0.40;
+      Mock<Random> mockRandom = new Mock<Random>();
+      mockRandom.Setup(rand => rand.NextDouble()).Returns(() => numberGenerated);
+      var subject = new RandomGenerator(mockRandom.Object);
+
+      // Arrange Expected
+      List<Weather> expectedWeatherConditions = new List<Weather>();
+      expectedWeatherConditions.Add(new Weather("Clear", 70.3, 0.70));
+
+      // Act
+      List<Weather> result = subject.GetObjectOnProbabilityFromList(weatherConditions);
+
+      // Assert
+      Assert.AreEqual(expectedWeatherConditions[0].condition, result[0].condition);
+      Assert.AreEqual(expectedWeatherConditions[0].temperature, result[0].temperature);
+      Assert.AreEqual(expectedWeatherConditions[0].probOfWeatherEnjoyment, result[0].probOfWeatherEnjoyment);
+      Assert.AreEqual(expectedWeatherConditions.Count, result.Count);
+    }
+
   }
 }

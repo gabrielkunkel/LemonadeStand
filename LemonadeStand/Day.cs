@@ -18,6 +18,11 @@ namespace LemonadeStand
       PopulateCustomersList();
     }
 
+    public double DetermineTodaySales(double costOfLemonadeCup)
+    {
+      return 0.0000;
+    }
+
     private void DetermineWeather()
     {
       WeatherProvider weatherProvider = new WeatherProvider();

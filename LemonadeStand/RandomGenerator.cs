@@ -49,7 +49,21 @@ namespace LemonadeStand
       return listOfAcceptedStrings;
     }
 
-    // todo: GetObjectOnProbability
+    public List<Weather> GetObjectOnProbabilityFromList(List<Weather> list)
+    {
+      List<Weather> workingList = new List<Weather>();
+
+      foreach (var item in list)
+      {
+        double comparator = random.NextDouble();
+        if (item.probOfWeatherEnjoyment >= comparator)
+        {
+          workingList.Add(item);
+        }
+      }
+
+      return workingList;
+    }
 
 
 

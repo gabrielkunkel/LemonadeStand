@@ -15,7 +15,7 @@ namespace LemonadeStand
       BuildWeatherList();
     }
 
-    // todo: add in randomGenerator and pick which whether we're going to have based on probability
+    // todo: add in randomGenerator and pick which weather we're going to have based on probability (from a list of objects)
     public Weather GetWeather()
     {
       RandomGenerator randomGenerator = new RandomGenerator();
@@ -24,12 +24,12 @@ namespace LemonadeStand
 
     private void BuildWeatherList()
     {
-      weatherConditions.Add(new Weather("Thunderstorm", 52.7, 0.01));
-      weatherConditions.Add(new Weather("Drizzle", 56.3, 0.10));
-      weatherConditions.Add(new Weather("Rain", 57.2, 0.05));
+      weatherConditions.Add(new Weather("Thunderstorm", 52.7, 0.06));
+      weatherConditions.Add(new Weather("Drizzle", 56.3, 0.12));
+      weatherConditions.Add(new Weather("Rain", 57.2, 0.10));
       weatherConditions.Add(new Weather("Snow", 43.9, 0.02));
-      weatherConditions.Add(new Weather("Clear", 70.3, 0.01));
-      weatherConditions.Add(new Weather("Clouds", 62.4, 0.01));
+      weatherConditions.Add(new Weather("Clear", 70.3, 0.70));
+      weatherConditions.Add(new Weather("Clouds", 62.4, 0.24));
     }
 
   }

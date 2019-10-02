@@ -5,18 +5,12 @@ namespace LemonadeStand
   public class CustomerFactory
   {
     readonly int numberOfCustomers = 100; // todo: make numberOfCustomers change
-    Dictionary<string, double> probabilityOfWeatherEnjoyment = new Dictionary<string, double>();
     RandomGenerator randomGenerator = new RandomGenerator();
+    WeatherProvider weatherProvider = new WeatherProvider();
 
     public CustomerFactory()
     {
-      // todo: move
-      probabilityOfWeatherEnjoyment.Add("warm", 0.48);
-      probabilityOfWeatherEnjoyment.Add("hot", 0.58);
-      probabilityOfWeatherEnjoyment.Add("rain", 0.10);
-      probabilityOfWeatherEnjoyment.Add("cold", 0.02);
-      probabilityOfWeatherEnjoyment.Add("sunny", 0.67);
-      probabilityOfWeatherEnjoyment.Add("cloudy", 0.18);
+ 
     }
 
     public List<Customer> ProduceCustomers()
@@ -39,9 +33,9 @@ namespace LemonadeStand
     {
       return randomGenerator.GetRandomSpendingMoney(0.20);
     }
-    private List<string> GetListOfPreferredWeatherConditions()
+    private List<Weather> GetListOfPreferredWeatherConditions()
     {
-      return randomGenerator.GetDictionaryStringOnProbability(probabilityOfWeatherEnjoyment);
+      return randomGenerator.GetObjectOnProbabilityFromList(weatherProvider.weatherConditions);
     }
 
 

@@ -19,9 +19,8 @@ namespace Lemonade_Stand_Tests
     [TestMethod]
     public void WillPurchase_HasTooLittleMoney_SetByClassConstructor()
     {
-      var myList = new List<string>() { "cloudy", "sunny", "hot" };
 
-      Customer myCustomer = new Customer(0.10, myList);
+      Customer myCustomer = new Customer(0.10);
       var result = myCustomer.WillPurchase(0.25);
 
       Assert.AreEqual(false, result);
@@ -30,9 +29,8 @@ namespace Lemonade_Stand_Tests
     [TestMethod]
     public void WillPurchase_HasEnoughMoney_SetByClassConstructor()
     {
-      var myList = new List<string>() { "cloudy", "sunny", "hot" };
 
-      Customer myCustomer = new Customer(0.25, myList);
+      Customer myCustomer = new Customer(0.25);
       var result = myCustomer.WillPurchase(0.25);
 
       Assert.AreEqual(true, result);
@@ -41,9 +39,8 @@ namespace Lemonade_Stand_Tests
     [TestMethod]
     public void HowManyCupsWillCustomerPurchase_HasTooLittleMoney_SetByClass()
     {
-      var myList = new List<string>() { "cloudy", "sunny", "hot" };
 
-      Customer myCustomer = new Customer(0.10, myList);
+      Customer myCustomer = new Customer(0.10);
       var result = myCustomer.HowManyCupsWillCustomerPurchase(0.25);
 
       Assert.AreEqual(0, result);
@@ -52,9 +49,8 @@ namespace Lemonade_Stand_Tests
     [TestMethod]
     public void HowManyCupsWillCustomerPurchase_HasEnoughMoneyForOne_SetByClass()
     {
-      var myList = new List<string>() { "cloudy", "sunny", "hot" };
 
-      Customer myCustomer = new Customer(0.48, myList);
+      Customer myCustomer = new Customer(0.48);
       var result = myCustomer.HowManyCupsWillCustomerPurchase(0.25);
 
       Assert.AreEqual(1, result);
@@ -63,9 +59,8 @@ namespace Lemonade_Stand_Tests
     [TestMethod]
     public void HowManyCupsWillCustomerPurchase_HasEnoughMoneyForTwo_SetByClass()
     {
-      var myList = new List<string>() { "cloudy", "sunny", "hot" };
 
-      Customer myCustomer = new Customer(0.51, myList);
+      Customer myCustomer = new Customer(0.51);
       var result = myCustomer.HowManyCupsWillCustomerPurchase(0.25);
 
       Assert.AreEqual(2, result);

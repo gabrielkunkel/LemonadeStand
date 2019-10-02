@@ -7,6 +7,7 @@ namespace LemonadeStand
     public string condition;
     public double temperature;
     public double probOfWeatherEnjoyment;
+    // todo: add probablePick
 
     public Weather()
     {

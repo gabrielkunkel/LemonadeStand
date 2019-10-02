@@ -6,15 +6,21 @@ namespace LemonadeStand
   public class Customer
   {
     public double lemonadeSpendableMoney;
-    public List<string> preferredWeatherConditions = new List<string>();
+    public List<Weather> preferredWeatherConditions = new List<Weather>();
 
     public Customer()
     {
       this.lemonadeSpendableMoney = 0.50;
-      this.preferredWeatherConditions.Add("all");
+      this.preferredWeatherConditions.Add(new Weather("clear", 72.8, 0.50));
     }
 
-    public Customer(double lemonadeSpendableMoney, List<string> preferredWeatherConditions)
+    public Customer(double lemonadeSpendableMoney)
+    {
+      this.lemonadeSpendableMoney = lemonadeSpendableMoney;
+      this.preferredWeatherConditions.Add(new Weather());
+    }
+
+    public Customer(double lemonadeSpendableMoney, List<Weather> preferredWeatherConditions)
     {
       this.lemonadeSpendableMoney = lemonadeSpendableMoney;
       this.preferredWeatherConditions = preferredWeatherConditions;
@@ -35,7 +41,6 @@ namespace LemonadeStand
       {
         double numberToRound = lemonadeSpendableMoney / lemonadeCupPrice;
         return Convert.ToInt32(Math.Floor(numberToRound));
-
       }
     }
 
