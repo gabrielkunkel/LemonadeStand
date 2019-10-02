@@ -1,6 +1,5 @@
-﻿using System;
+﻿using LemonadeStand;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LemonadeStand;
 using System.Collections.Generic;
 
 namespace Lemonade_Stand_Tests
@@ -20,7 +19,7 @@ namespace Lemonade_Stand_Tests
     [TestMethod]
     public void WillPurchase_HasTooLittleMoney_SetByClassConstructor()
     {
-      var myList = new List<string>() {"cloudy", "sunny", "hot"}; 
+      var myList = new List<string>() { "cloudy", "sunny", "hot" };
 
       Customer myCustomer = new Customer(0.10, myList);
       var result = myCustomer.WillPurchase(0.25);

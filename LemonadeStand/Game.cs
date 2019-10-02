@@ -1,32 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LemonadeStand
+﻿namespace LemonadeStand
 {
-    public class Game
+  public class Game
+  {
+    Player player;
+    int totalDays;
+    int currentDay;
+
+    public Game(int totalDays)
     {
-      Player player;
-      List<Day> days;
-      int currentDay;
-
-      public Game()
-      {
-
-      }
-
-      // todo: public void RunGame
-      
-      // todo: days
-      // todo: Determine sales for the day
-        // cycle through list and judge whether purchase & how much
-        // add money to wallet
-      // todo: gameLoop
-
-      
-
-
+      this.totalDays = totalDays;
+      this.player = new Player();
     }
+
+    // todo: public void RunGame
+
+    // todo: days
+    // todo: gameLoop
+
+
+
+
+  }
 }

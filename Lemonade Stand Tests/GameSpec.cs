@@ -1,6 +1,5 @@
-﻿using System;
+﻿using LemonadeStand;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LemonadeStand;
 
 namespace Lemonade_Stand_Tests
 {
@@ -11,7 +10,7 @@ namespace Lemonade_Stand_Tests
     public void InitialCheck_TestsWorking_GameClass()
     {
       Game testGame = new Game();
-      
+
 
     }
   }

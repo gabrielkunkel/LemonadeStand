@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace LemonadeStand
 {
@@ -14,6 +10,7 @@ namespace LemonadeStand
 
     public CustomerFactory()
     {
+      // todo: move
       probabilityOfWeatherEnjoyment.Add("warm", 0.48);
       probabilityOfWeatherEnjoyment.Add("hot", 0.58);
       probabilityOfWeatherEnjoyment.Add("rain", 0.10);
@@ -46,7 +43,7 @@ namespace LemonadeStand
     {
       return randomGenerator.GetDictionaryStringOnProbability(probabilityOfWeatherEnjoyment);
     }
- 
+
 
   }
 }

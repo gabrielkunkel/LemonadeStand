@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
@@ -19,17 +15,17 @@ namespace LemonadeStand
     }
 
     public Customer(double lemonadeSpendableMoney, List<string> preferredWeatherConditions)
-        {
+    {
       this.lemonadeSpendableMoney = lemonadeSpendableMoney;
       this.preferredWeatherConditions = preferredWeatherConditions;
     }
 
-  public bool WillPurchase(double lemonadeCupPrice)
+    public bool WillPurchase(double lemonadeCupPrice)
     {
       return lemonadeCupPrice <= lemonadeSpendableMoney;
     }
 
-  public int HowManyCupsWillCustomerPurchase(double lemonadeCupPrice)
+    public int HowManyCupsWillCustomerPurchase(double lemonadeCupPrice)
     {
       if (!WillPurchase(lemonadeCupPrice))
       {

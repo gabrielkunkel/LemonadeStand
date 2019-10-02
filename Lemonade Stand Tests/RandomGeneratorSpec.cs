@@ -1,7 +1,7 @@
-﻿using System;
+﻿using LemonadeStand;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LemonadeStand;
 using Moq;
+using System;
 using System.Collections.Generic;
 
 namespace Lemonade_Stand_Tests

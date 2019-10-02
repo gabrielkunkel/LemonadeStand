@@ -4,22 +4,31 @@ namespace LemonadeStand
 {
   public class Day
   {
-    public Weather weather;
+    public Weather weatherToday;
+    public Weather weatherForceast;
     public List<Customer> customers;
-    public List<string> weatherConditions = new List<string>(){"warm", "hot", "rain", "cold", "sunny", "cloudy"};
-    // todo: Price of lemons?
+
+ 
 
 
     // todo: run through day
       // Determine weather conditions.
-      // X CreateCustomers
-      // Determine how many cups of lemonade all the customers buy
-      // 
+    // X CreateCustomers
+    // todo: Determine sales for the day
+    // cycle through list and judge whether purchase & how much
+    // add money to wallet
 
     public Day()
     {
       CustomerFactory customerFactory = new CustomerFactory();
       this.customers = customerFactory.ProduceCustomers();
+    }
+
+    private void DetermineWeather()
+    {
+      WeatherProvider weatherFactory = new WeatherProvider();
+      this.weatherToday = weatherFactory.getWeather();
+      this.weatherForceast = weatherFactory.getWeather();
     }
 
   }

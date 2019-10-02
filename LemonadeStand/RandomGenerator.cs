@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
@@ -20,6 +17,12 @@ namespace LemonadeStand
     {
       int randomInt = random.Next(anyStringList.Count);
       return anyStringList[randomInt];
+    }
+
+    public Weather GetRandomListMember(List<Weather> anyWeatherList)
+    {
+      int randomInt = random.Next(anyWeatherList.Count);
+      return anyWeatherList[randomInt];
     }
 
     public double GetRandomSpendingMoney(double startAmount)
@@ -45,7 +48,8 @@ namespace LemonadeStand
       }
       return listOfAcceptedStrings;
     }
-    
+
+    // todo: GetObjectOnProbability
 
 
 

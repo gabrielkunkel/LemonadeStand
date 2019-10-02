@@ -67,6 +67,7 @@
     <Compile Include="Wallet.cs" />
     <Compile Include="Weather.cs" />
     <Compile Include="WeatherCondition.cs" />
+    <Compile Include="WeatherProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
