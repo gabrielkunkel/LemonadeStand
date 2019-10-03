@@ -12,11 +12,11 @@ namespace LemonadeStand
     public string name;
     public int quantity;
 
-    public ItemStore(double cost, string name, int quantity)
+    public ItemStore(string name, double cost)
     {
       this.cost = cost;
       this.name = name;
-      this.quantity = quantity;
+      this.quantity = 0;
     }
 
     // todo: test this

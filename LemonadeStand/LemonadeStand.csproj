@@ -54,12 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CupStore.cs" />
     <Compile Include="CustomerFactory.cs" />
-    <Compile Include="IceCubeStore.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="ItemStore.cs" />
-    <Compile Include="LemonStore.cs" />
     <Compile Include="ProductSupply.cs" />
     <Compile Include="RandomGenerator.cs" />
     <Compile Include="Customer.cs" />
@@ -70,7 +67,6 @@
     <Compile Include="Recipe.cs" />
     <Compile Include="CashRegister.cs" />
     <Compile Include="Stand.cs" />
-    <Compile Include="SugarCubeStore.cs" />
     <Compile Include="Weather.cs" />
     <Compile Include="WeatherProvider.cs" />
   </ItemGroup>
