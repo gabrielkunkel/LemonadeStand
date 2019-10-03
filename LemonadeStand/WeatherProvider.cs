@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-  class WeatherProvider
+  public class WeatherProvider
   {
     public List<Weather> weatherConditions = new List<Weather>();
 

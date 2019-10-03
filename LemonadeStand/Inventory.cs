@@ -44,5 +44,13 @@
       return isEnough;
     }
 
+    public void AddToInventory(int sugarCubes, int lemons, int iceCubes, int cups)
+    {
+      this.sugarCubes.IncrceaseQuantity(sugarCubes);
+      this.lemons.IncrceaseQuantity(lemons);
+      this.iceCubes.IncrceaseQuantity(iceCubes);
+      this.cups.IncrceaseQuantity(cups);
+    }
+
   }
 }

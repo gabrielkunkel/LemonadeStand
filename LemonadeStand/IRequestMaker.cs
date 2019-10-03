@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-  interface IRequestMaker
+  public interface IRequestMaker
   {
 
     Recipe currentRecipe {get; set;}
