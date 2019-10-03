@@ -22,25 +22,29 @@ namespace LemonadeStandConsole
     public void Run(Player player)
     {
       uIProvider.StartDay(dayNumber, weatherToday, weatherForecast);
-      uIProvider.GetInventoryUpdate(player);
+      uIProvider.GetInventoryUpdate(player.stand);
+      uIProvider.GetRecipeUpdate(player.stand);
       double todaySales = DetermineTodaySales(player.stand);
       player.stand.register.Income(todaySales);
     }
-
-    // todo modify recipe
 
     public double DetermineTodaySales(Stand stand)
     {
       int cupsToBuy = 0;
       foreach (var item in customers)
       {
-        // todo: write test inventory check
+        // todo: write tests for DetermineTodaySales on if there is/isn't enough inventory
         if (stand.inventory.IsEnoughInventory(stand.recipe))
         {
           if (CheckWeatherConditionsContained(item.preferredWeatherConditions))
           { 
             cupsToBuy += item.HowManyCupsWillCustomerPurchase(stand.recipe.price);
           }
+        }
+        else
+        {
+          uIProvider.SoldOutOfInventory(stand);
+          break;
         }
       }
 

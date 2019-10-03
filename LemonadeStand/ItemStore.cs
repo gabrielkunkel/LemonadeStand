@@ -19,7 +19,6 @@ namespace LemonadeStand
       this.quantity = 0;
     }
 
-    // todo: test this
     public void IncrceaseQuantity(int amount)
     {
       if (amount > 0)

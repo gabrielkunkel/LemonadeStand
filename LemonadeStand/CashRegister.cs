@@ -14,7 +14,7 @@
       this.registerAmount += income;
     }
 
-    // todo: test this
+    // todo: write tests for IsThereEnough
     public bool IsThereEnough(double testAmount)
     {
       return testAmount <= registerAmount;

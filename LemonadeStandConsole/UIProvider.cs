@@ -25,13 +25,13 @@ namespace LemonadeStandConsole
       Messages.PrintEmptyLine();
     } 
 
-    public void GetInventoryUpdate(Player player)
+    public void GetInventoryUpdate(Stand stand)
     {
       bool stayOnInventoryUpdate = false;
 
       do
       {
-        Messages.PrintCurrentInventory(player);
+        Messages.PrintCurrentInventory(stand);
         Messages.PrintEmptyLine();
         Messages.PromptForInventory();
         int lemons = Convert.ToInt32(Console.ReadLine());
@@ -40,20 +40,50 @@ namespace LemonadeStandConsole
         int cups = Convert.ToInt32(Console.ReadLine());
         Messages.PrintEmptyLine();
 
-        double totalCost = player.stand.inventory.GetTotalCost(sugarCubes, lemons, iceCubes, cups);
-        if (player.stand.register.IsThereEnough(totalCost))
+        double totalCost = stand.inventory.GetTotalCost(sugarCubes, lemons, iceCubes, cups);
+        if (stand.register.IsThereEnough(totalCost))
         {
-          player.stand.register.DebitRegister(totalCost);
-          player.stand.inventory.AddToInventory(sugarCubes, lemons, iceCubes, cups);
+          stand.register.DebitRegister(totalCost);
+          stand.inventory.AddToInventory(sugarCubes, lemons, iceCubes, cups);
           stayOnInventoryUpdate = false;
         }
         else
         {
-          Messages.PrintNotEnoughMoney(player.stand.register);
+          Messages.PrintNotEnoughMoney(stand.register);
           stayOnInventoryUpdate = true;
         } 
       } while (stayOnInventoryUpdate);
      
+    }
+
+    public void SoldOutOfInventory(Stand stand)
+    {
+      Messages.PrintEmptyLine();
+      Messages.PrintOutOfInventory();
+      Messages.PrintEmptyLine();
+      Messages.PrintCurrentInventory(stand);
+      Messages.PrintEmptyLine();
+    }
+
+    public void GetRecipeUpdate(Stand stand)
+    {
+      bool stayOnRecipeUpdate = false;
+
+      do
+      {
+        Messages.PrintEmptyLine();
+        Messages.PrintCurrentRecipe(stand.recipe);
+        Messages.PromptForRecipe();
+        stand.recipe.lemonsPerCup = Convert.ToDouble(Console.ReadLine());
+        stand.recipe.sugarCubesPerCup = Convert.ToDouble(Console.ReadLine());
+        stand.recipe.iceCubesPerCup = Convert.ToDouble(Console.ReadLine());
+        stand.recipe.price = Convert.ToDouble(Console.ReadLine());
+        Messages.PrintEmptyLine();
+        Messages.PrintRecipeUpdated();
+        Messages.PrintCurrentRecipe(stand.recipe);
+
+      } while (stayOnRecipeUpdate);
+
     }
 
     public void GameAllOver()

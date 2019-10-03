@@ -16,7 +16,7 @@
       this.sugarCubes = new ItemStore("sugar cubes", 0.15);
     }
 
-    // todo: write test
+    // todo: write test for IsEnoughInventory
     public bool IsEnoughInventory(Recipe recipe)
     {
       isEnough = true;
@@ -52,7 +52,7 @@
       this.cups.IncrceaseQuantity(cups);
     }
 
-    // todo: write test
+    // todo: write test for GetTotalCost
     public double GetTotalCost(int sugarCubes, int lemons, int iceCubes, int cups)
     {
       double sugarCubesCost = this.sugarCubes.cost * sugarCubes;

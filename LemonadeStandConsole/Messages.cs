@@ -12,50 +12,74 @@ namespace LemonadeStandConsole
 
     public static void Introduction()
     {
-      Console.WriteLine("Welcome to Lenmonade Stand!");
+      Print("Welcome to Lenmonade Stand!");
     }
 
     public static void PromptForInventory()
     {
-      Console.WriteLine("What do you want to buy? Lemons, Sugar Cubes, Ice Cubes, Cups");
+      Print("What do you want to buy? Lemons, Sugar Cubes, Ice Cubes, Cups");
     }
 
-    public static void PrintCurrentInventory(Player player)
+    public static void PrintCurrentInventory(Stand stand)
     {
-      Console.WriteLine("Your current inventory is:");
-      Console.WriteLine($"You have {player.stand.inventory.lemons.quantity} lemons.");
-      Console.WriteLine($"You have {player.stand.inventory.sugarCubes.quantity} sugar cubes.");
-      Console.WriteLine($"You have {player.stand.inventory.iceCubes.quantity} ice cubes.");
-      Console.WriteLine($"You have {player.stand.inventory.cups.quantity} cups.");
+      Print("Your current inventory is:");
+      Print($"You have {stand.inventory.lemons.quantity} lemons.");
+      Print($"You have {stand.inventory.sugarCubes.quantity} sugar cubes.");
+      Print($"You have {stand.inventory.iceCubes.quantity} ice cubes.");
+      Print($"You have {stand.inventory.cups.quantity} cups.");
     }
 
     public static void PrintNotEnoughMoney(CashRegister cashRegister)
     {
-      Console.WriteLine("You don't have enough money in your register to buy all that.");
-      Console.WriteLine($"Your register only has ${cashRegister.registerAmount}.");
+      Print("You don't have enough money in your register to buy all that.");
+      Print($"Your register only has ${cashRegister.registerAmount}.");
       PrintEmptyLine();
+    }
+
+    public static void PrintOutOfInventory()
+    {
+      Print("You are out of inventory. This means you sold out all the lemonade for today.");
+    }
+
+    public static void PrintRecipeUpdated()
+    {
+      Print("Recipe Updated!");
+    }
+
+    public static void PrintCurrentRecipe(Recipe recipe)
+    {
+      Print("This is your current recipe right now:");
+      Print($"{recipe.lemonsPerCup} lemons per cup.");
+      Print($"{recipe.sugarCubesPerCup} sugar cubes per cup.");
+      Print($"{recipe.iceCubesPerCup} ice cubes per cup.");
+      Print($"You're selling these for a price of {recipe.price} per cup.");
     }
 
     public static void PromptForRecipe()
     {
-      Console.WriteLine("What do you want the current recipe to be?");
+      Print("What do you want the recipe to be?");
     }
 
     public static void PrintDayStats(int dayNumber, Weather weather, Weather forecast)
     {
-      Console.WriteLine($"The current day: {dayNumber}.");
-      Console.WriteLine($"The weather is: {weather.condition}.");
-      Console.WriteLine($"The weather tomorrow is supposed to be: {forecast.condition}.");
+      Print($"The current day: {dayNumber}.");
+      Print($"The weather is: {weather.condition}.");
+      Print($"The weather tomorrow is supposed to be: {forecast.condition}.");
     }
 
     public static void PrintEmptyLine()
     {
-      Console.WriteLine("                    ");
+      Print("                    ");
     }
 
     public static void PrintGameOver()
     {
-      Console.WriteLine("The Game is Over. Goodbye.");
+      Print("The Game is Over. Goodbye.");
+    }
+
+    public static void Print(string stringToPrint)
+    {
+      Console.WriteLine(stringToPrint);
     }
 
   }
