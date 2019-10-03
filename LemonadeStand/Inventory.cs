@@ -2,6 +2,7 @@
 {
   public class Inventory
   {
+    public bool isEnough;
     public ItemStore lemons;
     public ItemStore iceCubes;
     public ItemStore cups;
@@ -15,7 +16,33 @@
       this.sugarCubes = new ItemStore("sugar cubes", 0.15);
     }
 
-    // todo: check that there is enough inventory to make a cup of lemonade with current recipe (Recipe recipe)
+    // todo: test this
+    public bool IsEnoughInventory(Recipe recipe)
+    {
+      isEnough = true;
+      if (!(recipe.sugarCubesPerCup >= this.sugarCubes.quantity))
+      {
+        isEnough = false;
+      }
+      else if (!(recipe.lemonsPerCup >= this.lemons.quantity))
+      {
+        isEnough = false;
+      }
+      else if (!(recipe.iceCubesPerCup >= this.iceCubes.quantity))
+      {
+        isEnough = false;
+      }
+      else if (this.cups.quantity <= 0)
+      {
+        isEnough = false;
+      }
+      else
+      {
+        isEnough = true;
+      }
+
+      return isEnough;
+    }
 
   }
 }

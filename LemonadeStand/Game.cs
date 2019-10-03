@@ -17,8 +17,6 @@
     {
       this.totalDays = totalDays;
       this.player = new Player();
-
-
     }
 
     public void RunGameLoop()

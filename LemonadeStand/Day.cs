@@ -16,25 +16,27 @@ namespace LemonadeStand
 
     public void Run(Player player)
     {
-      double todaySales = DetermineTodaySales(player.stand.recipe.price);
+      // todo: purchase inventories
+      double todaySales = DetermineTodaySales(player.stand);
       player.stand.register.Income(todaySales);
     }
 
-    public double DetermineTodaySales(double costOfLemonadeCup)
+    public double DetermineTodaySales(Stand stand)
     {
       int cupsToBuy = 0;
       foreach (var item in customers)
       {
-        
-        if (CheckWeatherConditionsContained(item.preferredWeatherConditions))
+        // todo: test for inventory check
+        if (stand.inventory.IsEnoughInventory(stand.recipe))
         {
-          // todo: break the loop if we run out of ingredients before
-          cupsToBuy += item.HowManyCupsWillCustomerPurchase(costOfLemonadeCup);
+          if (CheckWeatherConditionsContained(item.preferredWeatherConditions))
+          { 
+            cupsToBuy += item.HowManyCupsWillCustomerPurchase(stand.recipe.price);
+          }
         }
-
       }
 
-      return cupsToBuy*costOfLemonadeCup;
+      return cupsToBuy*stand.recipe.price;
     }
 
     public bool CheckWeatherConditionsContained(List<Weather> weatherConditions)
@@ -64,6 +66,5 @@ namespace LemonadeStand
     }
 
   }
-
 
 }

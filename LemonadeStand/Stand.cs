@@ -8,7 +8,6 @@ namespace LemonadeStand
 {
   public class Stand
   {
-
     public Inventory inventory;
     public CashRegister register;
     public Recipe recipe;
