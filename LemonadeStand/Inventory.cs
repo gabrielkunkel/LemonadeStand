@@ -2,10 +2,10 @@
 {
   public class Inventory
   {
-    public int numberOflemons;
-    public int numberOfIceCubes;
-    public int numberOfCups;
-    public int numberOfSugarCubes;
+    public ItemStore lemons;
+    public ItemStore iceCubes;
+    public ItemStore cups;
+    public ItemStore sugarCubes;
 
     public Inventory()
     {

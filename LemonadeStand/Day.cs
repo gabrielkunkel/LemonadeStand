@@ -18,14 +18,17 @@ namespace LemonadeStand
       PopulateCustomersList();
     }
 
+    // todo: Day.Run method
+
     public double DetermineTodaySales(double costOfLemonadeCup)
     {
       int cupsToBuy = 0;
       foreach (var item in customers)
       {
-        // todo: switch this to checking 
+        
         if (CheckWeatherConditionsContained(item.preferredWeatherConditions))
         {
+          // todo: break the loop if we run out of ingredients before
           cupsToBuy += item.HowManyCupsWillCustomerPurchase(costOfLemonadeCup);
         }
 
