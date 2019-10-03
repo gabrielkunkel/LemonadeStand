@@ -21,14 +21,21 @@
 
     }
 
-    // todo: public void RunGame
+    public void RunGameLoop()
+    {
+      do
+      {
+        dayNumber += 1;
+        currentDay = new Day();
+        currentDay.Run(this.player);
+      } while (ContinueGame());
 
-    // todo: days
-    // todo: gameLoop
-      // increment dayNumber
-      // create new day
-      // add money to cashRegister
+    }
 
+    private bool ContinueGame()
+    {
+      return dayNumber <= totalDays;
+    }
 
 
 

@@ -15,7 +15,7 @@
       this.sugarCubes = new ItemStore("sugar cubes", 0.15);
     }
 
-    // todo: check that there is enough inventory to make a cup of lemonade with current recipe
+    // todo: check that there is enough inventory to make a cup of lemonade with current recipe (Recipe recipe)
 
   }
 }

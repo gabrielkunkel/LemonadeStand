@@ -57,7 +57,7 @@
     <Compile Include="CustomerFactory.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="ItemStore.cs" />
-    <Compile Include="ProductSupply.cs" />
+    <Compile Include="LemonadeSupply.cs" />
     <Compile Include="RandomGenerator.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Day.cs" />

@@ -8,17 +8,17 @@ namespace LemonadeStand
     public Weather weatherForecast;
     public List<Customer> customers;
 
-    // todo: Determine sales for the day
-      // cycle through list and judge whether purchase & how much
-      // add money to wallet
-
     public Day()
     { 
       DetermineWeather();
       PopulateCustomersList();
     }
 
-    // todo: Day.Run method
+    public void Run(Player player)
+    {
+      double todaySales = DetermineTodaySales(player.stand.recipe.price);
+      player.stand.register.Income(todaySales);
+    }
 
     public double DetermineTodaySales(double costOfLemonadeCup)
     {

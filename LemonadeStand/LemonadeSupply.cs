@@ -1,15 +1,15 @@
 ﻿namespace LemonadeStand
 {
-  public class ProductSupply
+  public class LemonadeSupply
   {
     public int cupsOfLemonade = 0;
 
-    public ProductSupply()
+    public LemonadeSupply()
     {
 
     }
 
-    public ProductSupply(int cupsOfLemonade)
+    public LemonadeSupply(int cupsOfLemonade)
     {
       this.cupsOfLemonade = cupsOfLemonade;
     }
@@ -22,6 +22,11 @@
     public void SubtractMultipleCups(int cupsDebiting)
     {
       this.cupsOfLemonade -= cupsDebiting;
+    }
+
+    public bool IsThereLemonade()
+    {
+      return cupsOfLemonade > 0;
     }
 
   }

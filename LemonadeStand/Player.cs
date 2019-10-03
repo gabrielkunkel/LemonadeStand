@@ -2,8 +2,14 @@
 {
   public class Player
   {
-    string name;
-    Stand stand = new Stand();
+    public string name;
+    public Stand stand;
+
+    public Player()
+    {
+      this.stand = new Stand();
+      this.name = "The Great Lemonade Stand";
+    }
 
   }
 }

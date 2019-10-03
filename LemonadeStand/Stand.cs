@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-  class Stand
+  public class Stand
   {
 
     public Inventory inventory;
     public CashRegister register;
     public Recipe recipe;
-    public ProductSupply supplyOfLemonade;
+    public LemonadeSupply supplyOfLemonade;
 
     public Stand()
     {
       this.inventory = new Inventory();
       this.register = new CashRegister();
       this.recipe = new Recipe();
-      this.supplyOfLemonade = new ProductSupply();
-  }
+      this.supplyOfLemonade = new LemonadeSupply();
+    }
 
   }
 }

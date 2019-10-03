@@ -15,7 +15,6 @@ namespace LemonadeStand
       BuildWeatherList();
     }
 
-    // todo: add in randomGenerator and pick which weather we're going to have based on probability (from a list of objects)
     public Weather GetWeather()
     {
       RandomGenerator randomGenerator = new RandomGenerator();
