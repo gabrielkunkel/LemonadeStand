@@ -19,9 +19,10 @@ namespace LemonadeStandConsole
       Messages.Introduction();
     }
 
-    public void StartDay(int dayNumber)
+    public void StartDay(int dayNumber, Weather today, Weather forecast)
     {
-      Messages.PrintDay(dayNumber);
+      Messages.PrintDayStats(dayNumber, today, forecast);
+      Messages.PrintEmptyLine();
     } 
 
     public void GetInventoryUpdate(Player player)
@@ -37,6 +38,8 @@ namespace LemonadeStandConsole
         int sugarCubes = Convert.ToInt32(Console.ReadLine());
         int iceCubes = Convert.ToInt32(Console.ReadLine());
         int cups = Convert.ToInt32(Console.ReadLine());
+        Messages.PrintEmptyLine();
+
         double totalCost = player.stand.inventory.GetTotalCost(sugarCubes, lemons, iceCubes, cups);
         if (player.stand.register.IsThereEnough(totalCost))
         {

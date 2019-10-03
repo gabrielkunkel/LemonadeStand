@@ -41,9 +41,11 @@ namespace LemonadeStandConsole
       Console.WriteLine("What do you want the current recipe to be?");
     }
 
-    public static void PrintDay(int dayNumber)
+    public static void PrintDayStats(int dayNumber, Weather weather, Weather forecast)
     {
-      Console.WriteLine($"The current day: {dayNumber}");
+      Console.WriteLine($"The current day: {dayNumber}.");
+      Console.WriteLine($"The weather is: {weather.condition}.");
+      Console.WriteLine($"The weather tomorrow is supposed to be: {forecast.condition}.");
     }
 
     public static void PrintEmptyLine()

@@ -8,7 +8,7 @@ namespace LemonadeStand
     public Player player;
     public int totalDays;
     public Day currentDay;
-    public int dayNumber;
+    public int dayNumber = 0;
     public UIProvider uIProvider;
 
     public Game(UIProvider uIProvider)
@@ -31,16 +31,16 @@ namespace LemonadeStand
       do
       {
         dayNumber += 1;
-        uIProvider.GetInventoryUpdate(this.player);
-        this.currentDay = new Day(uIProvider);
+        this.currentDay = new Day(uIProvider, dayNumber);
         currentDay.Run(this.player);
       } while (ContinueGame());
+      uIProvider.GameAllOver();
 
     }
 
     private bool ContinueGame()
     {
-      return dayNumber <= totalDays;
+      return dayNumber < totalDays;
     }
 
 
