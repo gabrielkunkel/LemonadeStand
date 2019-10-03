@@ -29,6 +29,13 @@ namespace LemonadeStandConsole
       Console.WriteLine($"You have {player.stand.inventory.cups.quantity} cups.");
     }
 
+    public static void PrintNotEnoughMoney(CashRegister cashRegister)
+    {
+      Console.WriteLine("You don't have enough money in your register to buy all that.");
+      Console.WriteLine($"Your register only has ${cashRegister.registerAmount}.");
+      PrintEmptyLine();
+    }
+
     public static void PromptForRecipe()
     {
       Console.WriteLine("What do you want the current recipe to be?");

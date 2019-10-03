@@ -54,7 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RequestDataProvider.cs" />
     <Compile Include="CustomerFactory.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="ItemStore.cs" />
@@ -65,7 +64,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipe.cs" />
     <Compile Include="CashRegister.cs" />
-    <Compile Include="IRequestMaker.cs" />
     <Compile Include="Stand.cs" />
     <Compile Include="Weather.cs" />
     <Compile Include="WeatherProvider.cs" />

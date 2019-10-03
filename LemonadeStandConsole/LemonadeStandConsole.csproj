@@ -48,7 +48,6 @@
     <Compile Include="Messages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestMaker.cs" />
     <Compile Include="UIProvider.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,19 +8,24 @@ namespace LemonadeStandConsole
     public Weather weatherToday;
     public Weather weatherForecast;
     public List<Customer> customers;
+    private UIProvider uIProvider;
 
-    public Day()
-    { 
+    public Day(UIProvider uIProvider)
+    {
+      this.uIProvider = uIProvider;
       DetermineWeather();
       PopulateCustomersList();
     }
 
     public void Run(Player player)
     {
-
+      uIProvider.GetInventoryUpdate(player);
       double todaySales = DetermineTodaySales(player.stand);
       player.stand.register.Income(todaySales);
     }
+
+    // todo modify recipe
+
 
     public double DetermineTodaySales(Stand stand)
     {

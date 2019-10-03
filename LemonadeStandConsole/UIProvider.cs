@@ -22,19 +22,35 @@ namespace LemonadeStandConsole
     public void StartDay(int dayNumber)
     {
       Messages.PrintDay(dayNumber);
-    }
-
-    public void 
+    } 
 
     public void GetInventoryUpdate(Player player)
     {
-      Messages.PrintCurrentInventory(player);
-      Messages.PrintEmptyLine();
-      Messages.PromptForInventory();
-      player.stand.inventory.lemons.quantity += Convert.ToInt32(Console.ReadLine());
-      player.stand.inventory.sugarCubes.quantity += Convert.ToInt32(Console.ReadLine());
-      player.stand.inventory.iceCubes.quantity += Convert.ToInt32(Console.ReadLine());
-      player.stand.inventory.cups.quantity += Convert.ToInt32(Console.ReadLine());
+      bool stayOnInventoryUpdate = false;
+
+      do
+      {
+        Messages.PrintCurrentInventory(player);
+        Messages.PrintEmptyLine();
+        Messages.PromptForInventory();
+        int lemons = Convert.ToInt32(Console.ReadLine());
+        int sugarCubes = Convert.ToInt32(Console.ReadLine());
+        int iceCubes = Convert.ToInt32(Console.ReadLine());
+        int cups = Convert.ToInt32(Console.ReadLine());
+        double totalCost = player.stand.inventory.GetTotalCost(sugarCubes, lemons, iceCubes, cups);
+        if (player.stand.register.IsThereEnough(totalCost))
+        {
+          player.stand.register.DebitRegister(totalCost);
+          player.stand.inventory.AddToInventory(sugarCubes, lemons, iceCubes, cups);
+          stayOnInventoryUpdate = false;
+        }
+        else
+        {
+          Messages.PrintNotEnoughMoney(player.stand.register);
+          stayOnInventoryUpdate = true;
+        } 
+      } while (stayOnInventoryUpdate);
+     
     }
 
     public void GameAllOver()
