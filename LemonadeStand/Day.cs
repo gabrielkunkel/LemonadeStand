@@ -16,7 +16,6 @@ namespace LemonadeStand
 
     public void Run(Player player)
     {
-      // todo: purchase inventories
       double todaySales = DetermineTodaySales(player.stand);
       player.stand.register.Income(todaySales);
     }
@@ -26,7 +25,7 @@ namespace LemonadeStand
       int cupsToBuy = 0;
       foreach (var item in customers)
       {
-        // todo: test for inventory check
+        // todo: test inventory check
         if (stand.inventory.IsEnoughInventory(stand.recipe))
         {
           if (CheckWeatherConditionsContained(item.preferredWeatherConditions))

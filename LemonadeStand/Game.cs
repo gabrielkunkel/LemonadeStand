@@ -24,6 +24,7 @@
       do
       {
         dayNumber += 1;
+        // todo: adjust inventories
         currentDay = new Day();
         currentDay.Run(this.player);
       } while (ContinueGame());
