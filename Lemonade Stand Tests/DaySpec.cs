@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using LemonadeStandConsole;
 using LemonadeStand;
 using System.Collections.Generic;
 
@@ -11,8 +12,9 @@ namespace Lemonade_Stand_Tests
     [TestMethod]
     public void DetermineTodaySales_AllCustomersSame()
     {
-
-      Day today = new Day();
+      UIProvider uIProvider = new UIProvider();
+      Day today = new Day(uIProvider, 1);
+      Stand defaultStand = new Stand();
       today.weatherToday = new Weather();
       today.customers = new List<Customer>();
       today.customers.Add(new Customer());
@@ -22,7 +24,7 @@ namespace Lemonade_Stand_Tests
       today.customers.Add(new Customer());
 
       // Act
-      double result = today.DetermineTodaySales(0.25);
+      double result = today.DetermineTodaySales(defaultStand);
 
 
       // Assert
@@ -33,7 +35,9 @@ namespace Lemonade_Stand_Tests
     public void DetermineTodaySales_CustomersHaveUnpreferredWeather()
     {
 
-      Day today = new Day();
+      UIProvider uIProvider = new UIProvider();
+      Day today = new Day(uIProvider, 1);
+      Stand defaultStand = new Stand();
       today.weatherToday = new Weather("rainstorms", 60, 1);
       today.customers = new List<Customer>();
       today.customers.Add(new Customer());
@@ -43,7 +47,7 @@ namespace Lemonade_Stand_Tests
       today.customers.Add(new Customer());
 
       // Act
-      double result = today.DetermineTodaySales(0.25);
+      double result = today.DetermineTodaySales(defaultStand);
 
 
       // Assert
@@ -70,7 +74,10 @@ namespace Lemonade_Stand_Tests
       weatherListThirdCustomer.Add(new Weather("funky", 10, .80));
 
       // Arrange Customers
-      Day today = new Day();
+      UIProvider uIProvider = new UIProvider();
+      Day today = new Day(uIProvider, 1);
+      Stand defaultStand = new Stand();
+      defaultStand.recipe.price = 0.35;
       today.weatherToday = new Weather("slushy", 60, 1);
       today.customers = new List<Customer>();
       today.customers.Add(new Customer(0.50, weatherListFirstCustomer));
@@ -80,7 +87,7 @@ namespace Lemonade_Stand_Tests
       today.customers.Add(new Customer(20.00));
 
       // Act
-      double result = today.DetermineTodaySales(0.35);
+      double result = today.DetermineTodaySales(defaultStand);
 
 
       // Assert

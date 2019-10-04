@@ -18,29 +18,24 @@ namespace LemonadeStand
       this.sugarCubes = new ItemStore("sugar cubes", 0.15);
     }
 
-    // todo: write test for IsEnoughInventory
     public bool IsEnoughInventory(Recipe recipe)
     {
       isEnough = true;
-      if (!(recipe.sugarCubesPerCup >= this.sugarCubes.quantity))
+      if (!(recipe.sugarCubesPerCup < this.sugarCubes.quantity))
       {
         isEnough = false;
       }
-      else if (!(recipe.lemonsPerCup >= this.lemons.quantity))
+      if (!(recipe.lemonsPerCup < this.lemons.quantity))
       {
         isEnough = false;
       }
-      else if (!(recipe.iceCubesPerCup >= this.iceCubes.quantity))
+      if (!(recipe.iceCubesPerCup < this.iceCubes.quantity))
       {
         isEnough = false;
       }
-      else if (this.cups.quantity <= 0)
+      if (!(this.cups.quantity > 0))
       {
         isEnough = false;
-      }
-      else
-      {
-        isEnough = true;
       }
 
       return isEnough;
@@ -65,8 +60,7 @@ namespace LemonadeStand
       return totalCost;
     }
 
-    // todo: write test for reduceInventoryByCurrentRecipe
-    public void reduceInevntoryByCurrentRecipe(int totalCups, Recipe currentRecipe)
+    public void ReduceInventoryByCurrentRecipe(int totalCups, Recipe currentRecipe)
     {
       lemons.quantity -= currentRecipe.lemonsPerCup * Convert.ToDouble(totalCups);
       iceCubes.quantity -= currentRecipe.iceCubesPerCup * Convert.ToDouble(totalCups);

@@ -67,9 +67,14 @@
     <Compile Include="CutsomerSpec.cs" />
     <Compile Include="RandomGeneratorSpec.cs" />
     <Compile Include="CustomerFactorySpec.cs" />
+    <Compile Include="InventorySpec.cs" />
     <Compile Include="WeatherSpec.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LemonadeStandConsole\LemonadeStandConsole.csproj">
+      <Project>{297a29e4-7c5f-4170-b07d-dbc0a35655c9}</Project>
+      <Name>LemonadeStandConsole</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LemonadeStand\LemonadeStand.csproj">
       <Project>{c1c02eea-d391-4c86-aebf-9ee233e41bba}</Project>
       <Name>LemonadeStand</Name>

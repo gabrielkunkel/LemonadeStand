@@ -30,6 +30,7 @@ namespace LemonadeStandConsole
       uIProvider.EndDay(player);
     }
 
+    // todo: break up DetermineTodaySales if possible
     public double DetermineTodaySales(Stand stand)
     {
       int cupsToBuy = 0;
@@ -51,7 +52,7 @@ namespace LemonadeStandConsole
         }
       }
 
-      stand.inventory.reduceInevntoryByCurrentRecipe(cupsToBuy, stand.recipe);
+      stand.inventory.ReduceInventoryByCurrentRecipe(cupsToBuy, stand.recipe);
 
       return cupsToBuy * stand.recipe.price;
     }
