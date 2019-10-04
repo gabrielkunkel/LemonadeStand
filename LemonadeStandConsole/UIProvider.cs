@@ -38,7 +38,7 @@ namespace LemonadeStandConsole
     public void GetInventoryUpdate(Stand stand)
     {
       bool stayOnInventoryUpdate = false;
-
+      Messages.PrintInventoryHeader();
       do
       {
         Messages.PrintCurrentInventory(stand);
@@ -64,8 +64,6 @@ namespace LemonadeStandConsole
           stayOnInventoryUpdate = true;
         } 
       } while (stayOnInventoryUpdate);
-
-      Messages.PrintDashedLine();
     }
 
     public void SoldOutOfInventory(Stand stand)
@@ -87,6 +85,7 @@ namespace LemonadeStandConsole
     public void GetRecipeUpdate(Stand stand)
     {
       bool stayOnRecipeUpdate = false;
+      Messages.PrintRecipeHeader();
       do
       {
         Messages.PrintEmptyLine();
@@ -101,7 +100,6 @@ namespace LemonadeStandConsole
         Messages.PrintCurrentRecipe(stand.recipe);
 
       } while (stayOnRecipeUpdate);
-      Messages.PrintDashedLine();
     }
 
     public void GameAllOver()

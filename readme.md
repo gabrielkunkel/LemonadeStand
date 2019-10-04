@@ -1,6 +1,6 @@
-Out of 105 points
-=================
-User stories:
+USER STORIES COMPLETED
+======================
+(Out of 105 points) 
 
 As a developer, if I don’t know what Lemonade Stand game is, I will play the game online for a bit to get familiar with the gameplay.
 
@@ -22,10 +22,11 @@ As a developer, if I don’t know what Lemonade Stand game is, I will play the gam
 
 (10 points): As a developer, I want to implement the SOLID design principles as well as C# best practices in my project, so that the project is as well-designed as possible.
 
-(10 points (5 points each)): As a developer, I want to pinpoint at least two placeswhere I used one of the SOLID design principles and discuss my reasoning, so that I can properly understand good code design. Minimum of two SOLID design principles must be used. 
+(10 points (5 points each)): As a developer, I want to pinpoint at least two placeswhere I used one of the SOLID design principles and discuss my reasoning, so that I can properly understand good code design. Minimum of two SOLID design principles must be used. (See Below)
 
-Bonus Points:
+SOLID PRINCIPLES DEMONSTRATED IN THIS PROJECT
+=============================================
 
-(5 points): As a player, I want the game to be playable for more than one player, so that I can have multiple humans play each other or a human play a computer.
+The *Single Respensibility Principle* is demonstrated throughout the project as I tended away from larger functions and focused on smaller functions that did one thing very well. One example would be the "IsEnoughInventory" function in my [Inventory class](https://github.com/gabrielkunkel/LemonadeStand/blob/master/LemonadeStand/Inventory.cs). It's a check that could have been included with a number of other functions. It could even be added to a class where it is used, like the Day class, but the Inventory class takes responsibility for the values that concern the Lemonade Stand's inventory.
 
-(5 points) As a developer, I want to integrate a Weather API, so that my game has real-time weather based on a current temperature and forecast.Classes You Will Use (you may need more than what is provided): Program, Weather, Customer, Game, Inventory, Player, Store, Day, User, Interface
+Using the *Open/Close Principle* I decoupled the creation of Customers from where they are processed with logic in the Day class, by creating a [CustomerFactory](https://github.com/gabrielkunkel/LemonadeStand/blob/master/LemonadeStand/CustomerFactory.cs). The CustomerFactory class permits me to avoid modifying the [Day class](https://github.com/gabrielkunkel/LemonadeStand/blob/master/LemonadeStandConsole/Day.cs) it's called in.

@@ -15,6 +15,16 @@ namespace LemonadeStandConsole
       Print("Welcome to Lenmonade Stand!");
     }
 
+    public static void PrintInventoryHeader()
+    {
+      Print("---------INVENTORY----------");
+    }
+
+    public static void PrintRecipeHeader()
+    {
+      Print("---------RECIPE----------");
+    }
+
     public static void PromptForInventory(Stand stand)
     {
       Print($"What do you want to buy? Lemons({stand.inventory.lemons.cost}), Sugar Cubes({stand.inventory.sugarCubes.cost}), Ice Cubes({stand.inventory.iceCubes.cost}), Cups({stand.inventory.cups.cost})");
@@ -107,6 +117,12 @@ namespace LemonadeStandConsole
     public static void PrintGameOver()
     {
       Print("The Game is Over. Goodbye.");
+      Console.ReadLine();
+    }
+
+    public static void ResetConsole()
+    {
+      Console.Clear();
     }
 
     private static void Print(string stringToPrint)
