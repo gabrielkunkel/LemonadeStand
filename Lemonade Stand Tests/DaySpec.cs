@@ -10,12 +10,13 @@ namespace Lemonade_Stand_Tests
   public class DaySpec
   {
     [TestMethod]
-    public void DetermineTodaySales_AllCustomersSame()
+    public void DetermineTodaySales_AllCustomersSame_PlentyInventory()
     {
       UIProvider uIProvider = new UIProvider();
       Day today = new Day(uIProvider, 1);
       Stand defaultStand = new Stand();
       today.weatherToday = new Weather();
+      defaultStand.inventory.AddToInventory(1000, 1000, 1000, 1000);
       today.customers = new List<Customer>();
       today.customers.Add(new Customer());
       today.customers.Add(new Customer());
@@ -77,6 +78,7 @@ namespace Lemonade_Stand_Tests
       UIProvider uIProvider = new UIProvider();
       Day today = new Day(uIProvider, 1);
       Stand defaultStand = new Stand();
+      defaultStand.inventory.AddToInventory(1000, 1000, 1000, 1000);
       defaultStand.recipe.price = 0.35;
       today.weatherToday = new Weather("slushy", 60, 1);
       today.customers = new List<Customer>();
