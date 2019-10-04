@@ -1,4 +1,6 @@
-﻿namespace LemonadeStand
+﻿using System;
+
+namespace LemonadeStand
 {
   public class Inventory
   {
@@ -61,6 +63,15 @@
       double cupsCost = this.cups.cost * cups;
       double totalCost = sugarCubesCost + lemonsCost + iceCubesCost + cupsCost;
       return totalCost;
+    }
+
+    // todo: write test for reduceInventoryByCurrentRecipe
+    public void reduceInevntoryByCurrentRecipe(int totalCups, Recipe currentRecipe)
+    {
+      lemons.quantity -= currentRecipe.lemonsPerCup * Convert.ToDouble(totalCups);
+      iceCubes.quantity -= currentRecipe.iceCubesPerCup * Convert.ToDouble(totalCups);
+      sugarCubes.quantity -= currentRecipe.sugarCubesPerCup * Convert.ToDouble(totalCups);
+      cups.quantity -= totalCups;
     }
 
   }

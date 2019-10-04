@@ -10,7 +10,7 @@ namespace LemonadeStand
   {
     public double cost;
     public string name;
-    public int quantity;
+    public double quantity;
 
     public ItemStore(string name, double cost)
     {

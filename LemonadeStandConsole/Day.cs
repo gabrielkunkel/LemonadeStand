@@ -33,14 +33,15 @@ namespace LemonadeStandConsole
     public double DetermineTodaySales(Stand stand)
     {
       int cupsToBuy = 0;
-      foreach (var item in customers)
+      foreach (var customer in customers)
       {
         // todo: write tests for DetermineTodaySales on if there is/isn't enough inventory
+        // todo: write test for inventory decreases based on recipe
         if (stand.inventory.IsEnoughInventory(stand.recipe))
         {
-          if (CheckWeatherConditionsContained(item.preferredWeatherConditions))
+          if (CheckWeatherConditionsContained(customer.preferredWeatherConditions))
           { 
-            cupsToBuy += item.HowManyCupsWillCustomerPurchase(stand.recipe.price);
+            cupsToBuy += customer.HowManyCupsWillCustomerPurchase(stand.recipe.price);
           }
         }
         else
@@ -50,7 +51,9 @@ namespace LemonadeStandConsole
         }
       }
 
-      return cupsToBuy*stand.recipe.price;
+      stand.inventory.reduceInevntoryByCurrentRecipe(cupsToBuy, stand.recipe);
+
+      return cupsToBuy * stand.recipe.price;
     }
 
     public bool CheckWeatherConditionsContained(List<Weather> weatherConditions)
