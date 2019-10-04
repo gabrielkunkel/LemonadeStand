@@ -20,25 +20,24 @@ namespace LemonadeStand
 
     public bool IsEnoughInventory(Recipe recipe)
     {
-      isEnough = true;
       if (!(recipe.sugarCubesPerCup < this.sugarCubes.quantity))
       {
-        isEnough = false;
+        return false;
       }
       if (!(recipe.lemonsPerCup < this.lemons.quantity))
       {
-        isEnough = false;
+        return false;
       }
       if (!(recipe.iceCubesPerCup < this.iceCubes.quantity))
       {
-        isEnough = false;
+        return false;
       }
       if (!(this.cups.quantity > 0))
       {
-        isEnough = false;
+        return false;
       }
 
-      return isEnough;
+      return true;
     }
 
     public void AddToInventory(int sugarCubes, int lemons, int iceCubes, int cups)

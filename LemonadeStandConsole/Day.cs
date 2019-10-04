@@ -33,7 +33,7 @@ namespace LemonadeStandConsole
     // todo: break up DetermineTodaySales if possible
     public double DetermineTodaySales(Stand stand)
     {
-      int cupsToBuy = 0;
+      int cupsToBuy = 0; // cupsToBuy is rising, even when there aren't sales
       foreach (var customer in customers)
       {
         // todo: write tests for DetermineTodaySales on if there is/isn't enough inventory

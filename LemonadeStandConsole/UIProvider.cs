@@ -10,7 +10,7 @@ namespace LemonadeStandConsole
   public class UIProvider
   {
 
-    // todo: create validation class
+    // todo: create validation static classe
 
     public UIProvider()
     {
@@ -23,6 +23,7 @@ namespace LemonadeStandConsole
 
     public void StartDay(int dayNumber, Weather today, Weather forecast)
     {
+      Messages.PrintStartOfDayHeader(dayNumber);
       Messages.PrintDayStats(dayNumber, today, forecast);
       Messages.PrintEmptyLine();
     } 

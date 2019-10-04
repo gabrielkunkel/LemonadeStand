@@ -60,6 +60,13 @@ namespace LemonadeStandConsole
       Print("What do you want the recipe to be?");
     }
 
+    public static void PrintStartOfDayHeader(int dayNumber)
+    {
+      Print("=====================================");
+      Print($"         DAY {dayNumber}");
+      Print("=====================================");
+    }
+
     public static void PrintDayStats(int dayNumber, Weather weather, Weather forecast)
     {
       Print($"The current day: {dayNumber}.");
