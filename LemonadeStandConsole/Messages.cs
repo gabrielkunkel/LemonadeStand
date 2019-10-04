@@ -15,9 +15,9 @@ namespace LemonadeStandConsole
       Print("Welcome to Lenmonade Stand!");
     }
 
-    public static void PromptForInventory()
+    public static void PromptForInventory(Stand stand)
     {
-      Print("What do you want to buy? Lemons, Sugar Cubes, Ice Cubes, Cups");
+      Print($"What do you want to buy? Lemons({stand.inventory.lemons.cost}), Sugar Cubes({stand.inventory.sugarCubes.cost}), Ice Cubes({stand.inventory.iceCubes.cost}), Cups({stand.inventory.cups.cost})");
     }
 
     public static void PrintCurrentInventory(Stand stand)

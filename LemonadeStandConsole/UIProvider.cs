@@ -43,7 +43,7 @@ namespace LemonadeStandConsole
       {
         Messages.PrintCurrentInventory(stand);
         Messages.PrintEmptyLine();
-        Messages.PromptForInventory();
+        Messages.PromptForInventory(stand);
         int lemons = Convert.ToInt32(Console.ReadLine());
         int sugarCubes = Convert.ToInt32(Console.ReadLine());
         int iceCubes = Convert.ToInt32(Console.ReadLine());
