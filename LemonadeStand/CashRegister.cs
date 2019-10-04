@@ -3,6 +3,7 @@
   public class CashRegister
   {
     public double registerAmount = 20;
+    public double runningProfit = 0;
 
     public void DebitRegister(double debit)
     {
@@ -18,6 +19,11 @@
     public bool IsThereEnough(double testAmount)
     {
       return testAmount <= registerAmount;
+    }
+
+    public double getProfit()
+    {
+      return registerAmount - 20;
     }
 
   }

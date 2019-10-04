@@ -10,6 +10,8 @@ namespace LemonadeStandConsole
   public class UIProvider
   {
 
+    // todo: create validation class
+
     public UIProvider()
     {
     }
@@ -24,6 +26,12 @@ namespace LemonadeStandConsole
       Messages.PrintDayStats(dayNumber, today, forecast);
       Messages.PrintEmptyLine();
     } 
+
+    public void EndDay()
+    {
+      // todo: how much we've made today
+      // todo: total profit or loss in the game so far
+    }
 
     public void GetInventoryUpdate(Stand stand)
     {

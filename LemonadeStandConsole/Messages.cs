@@ -77,7 +77,7 @@ namespace LemonadeStandConsole
       Print("The Game is Over. Goodbye.");
     }
 
-    public static void Print(string stringToPrint)
+    private static void Print(string stringToPrint)
     {
       Console.WriteLine(stringToPrint);
     }
