@@ -18,21 +18,21 @@ namespace LemonadeStand
       this.sugarCubes = new ItemStore("sugar cubes", 0.15);
     }
 
-    public bool IsEnoughInventory(Recipe recipe)
+    public bool IsEnoughInventory(Recipe recipe, int cupsToBuy = 1)
     {
-      if (!(recipe.sugarCubesPerCup < this.sugarCubes.quantity))
+      if (!(recipe.sugarCubesPerCup*cupsToBuy <= this.sugarCubes.quantity))
       {
         return false;
       }
-      if (!(recipe.lemonsPerCup < this.lemons.quantity))
+      if (!(recipe.lemonsPerCup*cupsToBuy <= this.lemons.quantity))
       {
         return false;
       }
-      if (!(recipe.iceCubesPerCup < this.iceCubes.quantity))
+      if (!(recipe.iceCubesPerCup*cupsToBuy <= this.iceCubes.quantity))
       {
         return false;
       }
-      if (!(this.cups.quantity > 0))
+      if (!(this.cups.quantity > 1 - (cupsToBuy*1)))
       {
         return false;
       }

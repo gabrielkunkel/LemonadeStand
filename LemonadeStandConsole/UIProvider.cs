@@ -10,7 +10,7 @@ namespace LemonadeStandConsole
   public class UIProvider
   {
 
-    // todo: create validation static classe
+    // todo: create validation static class?
 
     public UIProvider()
     {

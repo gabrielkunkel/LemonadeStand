@@ -39,13 +39,19 @@ namespace LemonadeStandConsole
       foreach (var customer in customers)
       {
 
+        int thisCustomerWillBuy = customer.HowManyCupsWillCustomerPurchase(stand.recipe.price);
+
+        while (!stand.inventory.IsEnoughInventory(stand.recipe, thisCustomerWillBuy) && thisCustomerWillBuy > 0)
+        {
+          thisCustomerWillBuy -= 1;
+        }
+
         if (stand.inventory.IsEnoughInventory(stand.recipe))
         {
           if (CheckWeatherConditionsContained(customer.preferredWeatherConditions))
           { 
-            int cupsToBuy = customer.HowManyCupsWillCustomerPurchase(stand.recipe.price);
-            stand.inventory.ReduceInventoryByCurrentRecipe(cupsToBuy, stand.recipe);
-            cupsToBuyTotal += cupsToBuy;
+            stand.inventory.ReduceInventoryByCurrentRecipe(thisCustomerWillBuy, stand.recipe);
+            cupsToBuyTotal += thisCustomerWillBuy;
           }
         }
         else
