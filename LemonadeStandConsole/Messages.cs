@@ -89,9 +89,19 @@ namespace LemonadeStandConsole
       Print($"The total profit for today is: ${cashRegister.getTodayNetProfit()}");
     }
 
+    public static void PrintTotalCupsSold(int totalCupsSold)
+    {
+      Print($"You've sold {totalCupsSold} today!");
+    }
+
     public static void PrintEmptyLine()
     {
       Print("                    ");
+    }
+
+    public static void PrintDashedLine()
+    {
+      Print("---------------------------");
     }
 
     public static void PrintGameOver()

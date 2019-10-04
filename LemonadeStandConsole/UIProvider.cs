@@ -64,22 +64,29 @@ namespace LemonadeStandConsole
           stayOnInventoryUpdate = true;
         } 
       } while (stayOnInventoryUpdate);
-     
+
+      Messages.PrintDashedLine();
     }
 
     public void SoldOutOfInventory(Stand stand)
     {
       Messages.PrintEmptyLine();
+      Messages.PrintDashedLine();
       Messages.PrintOutOfInventory();
       Messages.PrintEmptyLine();
       Messages.PrintCurrentInventory(stand);
+      Messages.PrintDashedLine();
       Messages.PrintEmptyLine();
+    }
+
+    public void ReportTotalCupsSold(int totalCupsSold)
+    {
+      Messages.PrintTotalCupsSold(totalCupsSold);
     }
 
     public void GetRecipeUpdate(Stand stand)
     {
       bool stayOnRecipeUpdate = false;
-
       do
       {
         Messages.PrintEmptyLine();
@@ -94,7 +101,7 @@ namespace LemonadeStandConsole
         Messages.PrintCurrentRecipe(stand.recipe);
 
       } while (stayOnRecipeUpdate);
-
+      Messages.PrintDashedLine();
     }
 
     public void GameAllOver()

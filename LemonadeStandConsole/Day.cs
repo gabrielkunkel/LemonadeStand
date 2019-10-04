@@ -31,18 +31,21 @@ namespace LemonadeStandConsole
     }
 
     // todo: break up DetermineTodaySales if possible
+    // todo: write tests for DetermineTodaySales on if there is/isn't enough inventory
+    // todo: write test for inventory decreases based on recipe
     public double DetermineTodaySales(Stand stand)
     {
-      int cupsToBuy = 0; // cupsToBuy is rising, even when there aren't sales
+      int cupsToBuyTotal = 0;
       foreach (var customer in customers)
       {
-        // todo: write tests for DetermineTodaySales on if there is/isn't enough inventory
-        // todo: write test for inventory decreases based on recipe
+
         if (stand.inventory.IsEnoughInventory(stand.recipe))
         {
           if (CheckWeatherConditionsContained(customer.preferredWeatherConditions))
           { 
-            cupsToBuy += customer.HowManyCupsWillCustomerPurchase(stand.recipe.price);
+            int cupsToBuy = customer.HowManyCupsWillCustomerPurchase(stand.recipe.price);
+            stand.inventory.ReduceInventoryByCurrentRecipe(cupsToBuy, stand.recipe);
+            cupsToBuyTotal += cupsToBuy;
           }
         }
         else
@@ -52,9 +55,9 @@ namespace LemonadeStandConsole
         }
       }
 
-      stand.inventory.ReduceInventoryByCurrentRecipe(cupsToBuy, stand.recipe);
+      uIProvider.ReportTotalCupsSold(cupsToBuyTotal);
 
-      return cupsToBuy * stand.recipe.price;
+      return cupsToBuyTotal * stand.recipe.price;
     }
 
     public bool CheckWeatherConditionsContained(List<Weather> weatherConditions)
