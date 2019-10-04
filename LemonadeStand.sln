@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemonadeStand", "LemonadeStand\LemonadeStand.csproj", "{C1C02EEA-D391-4C86-AEBF-9EE233E41BBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lemonade Stand Tests", "Lemonade Stand Tests\Lemonade Stand Tests.csproj", "{51BF8884-94B0-47BE-9C15-B88953BFBFF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemonadeStandTests", "Lemonade Stand Tests\LemonadeStandTests.csproj", "{51BF8884-94B0-47BE-9C15-B88953BFBFF0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{28DB43E5-65F5-4B2E-B573-5C66A10A238F}"
 	ProjectSection(SolutionItems) = preProject

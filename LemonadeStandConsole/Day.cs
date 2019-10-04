@@ -25,7 +25,9 @@ namespace LemonadeStandConsole
       uIProvider.GetInventoryUpdate(player.stand);
       uIProvider.GetRecipeUpdate(player.stand);
       double todaySales = DetermineTodaySales(player.stand);
+      player.stand.register.collectDaySalesAndProfit(todaySales);
       player.stand.register.Income(todaySales);
+      uIProvider.EndDay(player);
     }
 
     public double DetermineTodaySales(Stand stand)

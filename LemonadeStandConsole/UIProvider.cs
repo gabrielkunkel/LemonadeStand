@@ -27,10 +27,11 @@ namespace LemonadeStandConsole
       Messages.PrintEmptyLine();
     } 
 
-    public void EndDay()
+    public void EndDay(Player player)
     {
-      // todo: how much we've made today
-      // todo: total profit or loss in the game so far
+      Messages.PrintTotalProfit(player.stand.register);
+      Messages.PrintRegisterAmount(player.stand.register);
+      Messages.PrintTodayProfit(player.stand.register);
     }
 
     public void GetInventoryUpdate(Stand stand)
@@ -48,10 +49,11 @@ namespace LemonadeStandConsole
         int cups = Convert.ToInt32(Console.ReadLine());
         Messages.PrintEmptyLine();
 
+        // todo: move expense logic to CashRegister or Day
         double totalCost = stand.inventory.GetTotalCost(sugarCubes, lemons, iceCubes, cups);
         if (stand.register.IsThereEnough(totalCost))
         {
-          stand.register.DebitRegister(totalCost);
+          stand.register.DebitRegisterAndCollectExpenses(totalCost);
           stand.inventory.AddToInventory(sugarCubes, lemons, iceCubes, cups);
           stayOnInventoryUpdate = false;
         }

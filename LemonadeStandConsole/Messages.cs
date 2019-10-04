@@ -67,6 +67,21 @@ namespace LemonadeStandConsole
       Print($"The weather tomorrow is supposed to be: {forecast.condition}.");
     }
 
+    public static void PrintTotalProfit(CashRegister cashRegister)
+    {
+      Print($"Your total profit in the game so far is: ${cashRegister.getProfit()}");
+    }
+
+    public static void PrintRegisterAmount(CashRegister cashRegister)
+    {
+      Print($"The total amount in your register is: ${cashRegister.registerAmount}");
+    }
+
+    public static void PrintTodayProfit(CashRegister cashRegister)
+    {
+      Print($"The total profit for today is: ${cashRegister.getTodayNetProfit()}");
+    }
+
     public static void PrintEmptyLine()
     {
       Print("                    ");
