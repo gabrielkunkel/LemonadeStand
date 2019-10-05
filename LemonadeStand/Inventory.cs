@@ -40,7 +40,7 @@ namespace LemonadeStand
       return true;
     }
 
-    public void AddToInventory(int sugarCubes, int lemons, int iceCubes, int cups)
+    public void AddToInventory(double sugarCubes, double lemons, double iceCubes, double cups)
     {
       this.sugarCubes.IncrceaseQuantity(sugarCubes);
       this.lemons.IncrceaseQuantity(lemons);
@@ -49,7 +49,7 @@ namespace LemonadeStand
     }
 
     // todo: write test for GetTotalCost
-    public double GetTotalCost(int sugarCubes, int lemons, int iceCubes, int cups)
+    public double GetTotalCost(double sugarCubes, double lemons, double iceCubes, double cups)
     {
       double sugarCubesCost = this.sugarCubes.cost * sugarCubes;
       double lemonsCost = this.lemons.cost * lemons;

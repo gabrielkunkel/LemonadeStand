@@ -11,13 +11,15 @@ namespace LemonadeStandConsole
   {
 
     // todo: write test for GetData with Moq
-    public static void GetData(string infoRequested, Regex regex)
+    public static string GetData(string infoRequested, Regex regex)
     {
       Match stillLoop;
+      string input;
+
       do
       {
         Console.WriteLine(infoRequested);
-        var input = Console.ReadLine();
+        input = Console.ReadLine();
         stillLoop = regex.Match(input);
 
         if (!stillLoop.Success)
@@ -27,7 +29,9 @@ namespace LemonadeStandConsole
 
       } while (!stillLoop.Success);
 
+      return input;
     }
+
 
     private static void PrintErrorMessage(Regex regex)
     {
@@ -52,5 +56,4 @@ namespace LemonadeStandConsole
 
   }
 
-  // todo: method with switch case that checks the regex and prints error message
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LemonadeStand;
 
@@ -44,10 +45,10 @@ namespace LemonadeStandConsole
         Messages.PrintCurrentInventory(stand);
         Messages.PrintEmptyLine();
         Messages.PromptForInventory(stand);
-        int lemons = Convert.ToInt32(Console.ReadLine());
-        int sugarCubes = Convert.ToInt32(Console.ReadLine());
-        int iceCubes = Convert.ToInt32(Console.ReadLine());
-        int cups = Convert.ToInt32(Console.ReadLine());
+        double lemons = Convert.ToDouble(Validation.GetData("How many LEMONS do you want to buy?", new Regex("^[0-9]+$")));
+        double sugarCubes = Convert.ToDouble(Validation.GetData("How many SUGAR CUBES do you want to buy?", new Regex("^[0-9]+$")));
+        double iceCubes = Convert.ToDouble(Validation.GetData("How many ICE CUBES do you want to buy?", new Regex("^[0-9]+$")));
+        double cups = Convert.ToDouble(Validation.GetData("How many CUPS do you want to buy?", new Regex("^[0-9]+$")));
         Messages.PrintEmptyLine();
 
         // todo: move expense logic to CashRegister or Day

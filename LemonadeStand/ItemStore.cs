@@ -19,7 +19,7 @@ namespace LemonadeStand
       this.quantity = 0;
     }
 
-    public void IncrceaseQuantity(int amount)
+    public void IncrceaseQuantity(double amount)
     {
       if (amount > 0)
       {
