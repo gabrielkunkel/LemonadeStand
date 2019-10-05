@@ -41,7 +41,7 @@ namespace LemonadeStandConsole
 
       if (numbersMatch.Success)
       {
-        Console.WriteLine("This field only accepts numbers. Try again. (Decimals must have a preceding digit. e.g. *0.6* NOT *.6*)");
+        Console.WriteLine("This field only accepts numbers. Try again.");
       }
       else if (yesNoMatch.Success)
       {

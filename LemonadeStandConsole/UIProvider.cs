@@ -10,8 +10,8 @@ namespace LemonadeStandConsole
 {
   public class UIProvider
   {
-    private string regexDecimalNumbersString = "^-?[0-9][0-9,\\.]+$";
-    private string regexYesOrNo = "(\\byes\\b)|(\\bno\\b)";
+    private string regexDecimalNumbersString = @"^-?\d*(\.\d+)?$";
+    private string regexYesOrNo = @"(\byes\b)|(\bno\b)";
 
     public UIProvider()
     {
@@ -44,7 +44,7 @@ namespace LemonadeStandConsole
       Messages.PrintCurrentInventory(stand);
       Messages.PrintEmptyLine();
 
-      string yesOrNo = Validation.GetData("Do you want to purchase lemonade ingredients or cups?", new Regex(@regexYesOrNo));
+      string yesOrNo = Validation.GetData("Do you want to purchase lemonade ingredients or cups?", new Regex(regexYesOrNo));
       if (yesOrNo == "yes")
       {
         stayOnInventoryUpdate = true;
@@ -53,10 +53,10 @@ namespace LemonadeStandConsole
       while (stayOnInventoryUpdate)
       {
         Messages.PromptForInventory(stand);
-        double lemons = Convert.ToDouble(Validation.GetData("How many LEMONS do you want to buy?", new Regex(@regexDecimalNumbersString)));
-        double sugarCubes = Convert.ToDouble(Validation.GetData("How many SUGAR CUBES do you want to buy?", new Regex(@regexDecimalNumbersString)));
-        double iceCubes = Convert.ToDouble(Validation.GetData("How many ICE CUBES do you want to buy?", new Regex(@regexDecimalNumbersString)));
-        double cups = Convert.ToDouble(Validation.GetData("How many CUPS do you want to buy?", new Regex(@regexDecimalNumbersString)));
+        double lemons = Convert.ToDouble(Validation.GetData("How many LEMONS do you want to buy?", new Regex(regexDecimalNumbersString)));
+        double sugarCubes = Convert.ToDouble(Validation.GetData("How many SUGAR CUBES do you want to buy?", new Regex(regexDecimalNumbersString)));
+        double iceCubes = Convert.ToDouble(Validation.GetData("How many ICE CUBES do you want to buy?", new Regex(regexDecimalNumbersString)));
+        double cups = Convert.ToDouble(Validation.GetData("How many CUPS do you want to buy?", new Regex(regexDecimalNumbersString)));
         Messages.PrintEmptyLine();
 
         // todo: move expense logic to CashRegister or Day
@@ -101,10 +101,10 @@ namespace LemonadeStandConsole
         Messages.PrintEmptyLine();
         Messages.PrintCurrentRecipe(stand.recipe);
         Messages.PromptForRecipe();
-        stand.recipe.lemonsPerCup = Convert.ToDouble(Validation.GetData("How many LEMONS do you want in each cup of lemonade?", new Regex(@regexDecimalNumbersString)));
-        stand.recipe.sugarCubesPerCup = Convert.ToDouble(Validation.GetData("How many SUGAR CUBES do you want in each cup of lemonade?", new Regex(@regexDecimalNumbersString)));
-        stand.recipe.iceCubesPerCup = Convert.ToDouble(Validation.GetData("How many ICE CUBES do you want in each cup of lemonade?", new Regex(@regexDecimalNumbersString)));
-        stand.recipe.price = Convert.ToDouble(Validation.GetData("How much do you want to charge for each cup of lemonade?", new Regex(@regexDecimalNumbersString)));
+        stand.recipe.lemonsPerCup = Convert.ToDouble(Validation.GetData("How many LEMONS do you want in each cup of lemonade?", new Regex(regexDecimalNumbersString)));
+        stand.recipe.sugarCubesPerCup = Convert.ToDouble(Validation.GetData("How many SUGAR CUBES do you want in each cup of lemonade?", new Regex(regexDecimalNumbersString)));
+        stand.recipe.iceCubesPerCup = Convert.ToDouble(Validation.GetData("How many ICE CUBES do you want in each cup of lemonade?", new Regex(regexDecimalNumbersString)));
+        stand.recipe.price = Convert.ToDouble(Validation.GetData("How much do you want to charge for each cup of lemonade?", new Regex(regexDecimalNumbersString)));
         Messages.PrintEmptyLine();
         Messages.PrintRecipeUpdated();
         Messages.PrintCurrentRecipe(stand.recipe);
