@@ -37,10 +37,15 @@ namespace LemonadeStandConsole
     {
       Match numbersMatch = regex.Match("89");
       Match lettersMatch = regex.Match("abcdefghi");
+      Match yesNoMatch = regex.Match("yes");
 
       if (numbersMatch.Success)
       {
         Console.WriteLine("This field only accepts numbers. Try again. (Decimals must have a preceding digit. e.g. *0.6* NOT *.6*)");
+      }
+      else if (yesNoMatch.Success)
+      {
+        Console.WriteLine("This field only accepts a *yes* or *no*. Try again.");
       }
       else if (lettersMatch.Success)
       {

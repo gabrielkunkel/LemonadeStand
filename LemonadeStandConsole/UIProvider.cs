@@ -11,6 +11,7 @@ namespace LemonadeStandConsole
   public class UIProvider
   {
     private string regexDecimalNumbersString = "^-?[0-9][0-9,\\.]+$";
+    private string regexYesOrNo = "(\\byes\\b)|(\\bno\\b)";
 
     public UIProvider()
     {
@@ -35,14 +36,22 @@ namespace LemonadeStandConsole
       Messages.PrintTodayProfit(player.stand.register);
     }
 
+    // todo: shorten GetInventoryUpdate
     public void GetInventoryUpdate(Stand stand)
     {
       bool stayOnInventoryUpdate = false;
       Messages.PrintInventoryHeader();
-      do
+      Messages.PrintCurrentInventory(stand);
+      Messages.PrintEmptyLine();
+
+      string yesOrNo = Validation.GetData("Do you want to purchase lemonade ingredients or cups?", new Regex(@regexYesOrNo));
+      if (yesOrNo == "yes")
       {
-        Messages.PrintCurrentInventory(stand);
-        Messages.PrintEmptyLine();
+        stayOnInventoryUpdate = true;
+      }
+
+      while (stayOnInventoryUpdate)
+      {
         Messages.PromptForInventory(stand);
         double lemons = Convert.ToDouble(Validation.GetData("How many LEMONS do you want to buy?", new Regex(@regexDecimalNumbersString)));
         double sugarCubes = Convert.ToDouble(Validation.GetData("How many SUGAR CUBES do you want to buy?", new Regex(@regexDecimalNumbersString)));
@@ -63,7 +72,7 @@ namespace LemonadeStandConsole
           Messages.PrintNotEnoughMoney(stand.register);
           stayOnInventoryUpdate = true;
         } 
-      } while (stayOnInventoryUpdate);
+      }
     }
 
     public void SoldOutOfInventory(Stand stand)
@@ -86,6 +95,7 @@ namespace LemonadeStandConsole
     {
       bool stayOnRecipeUpdate = false;
       Messages.PrintRecipeHeader();
+      // todo: ask if they want to update the recipe
       do
       {
         Messages.PrintEmptyLine();

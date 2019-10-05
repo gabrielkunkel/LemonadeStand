@@ -27,6 +27,11 @@ namespace LemonadeStandConsole
       Print("---------INVENTORY----------");
     }
 
+    public static void AskIfUserWantsToUpdateInventory()
+    {
+      Print("Do you want to purchase lemonade ingredients or cups?");
+    }
+
     public static void PrintRecipeHeader()
     {
       Print("---------RECIPE----------");
@@ -34,7 +39,7 @@ namespace LemonadeStandConsole
 
     public static void PromptForInventory(Stand stand)
     {
-      Print($"What do you want to buy? Lemons({stand.inventory.lemons.cost}), Sugar Cubes({stand.inventory.sugarCubes.cost}), Ice Cubes({stand.inventory.iceCubes.cost}), Cups({stand.inventory.cups.cost})");
+      Print($"What do you want to buy? Lemons(${stand.inventory.lemons.cost}), Sugar Cubes(${stand.inventory.sugarCubes.cost}), Ice Cubes(${stand.inventory.iceCubes.cost}), Cups(${stand.inventory.cups.cost})");
     }
 
     public static void PrintCurrentInventory(Stand stand)
