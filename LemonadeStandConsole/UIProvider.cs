@@ -95,11 +95,17 @@ namespace LemonadeStandConsole
     {
       bool stayOnRecipeUpdate = false;
       Messages.PrintRecipeHeader();
-      // todo: ask if they want to update the recipe
-      do
+      Messages.PrintEmptyLine();
+      Messages.PrintCurrentRecipe(stand.recipe);
+
+      string yesOrNo = Validation.GetData("Do you want to adjust the recipe and/or your price per cup?", new Regex(regexYesOrNo));
+      if (yesOrNo == "yes")
       {
-        Messages.PrintEmptyLine();
-        Messages.PrintCurrentRecipe(stand.recipe);
+        stayOnRecipeUpdate = true;
+      }
+
+      while (stayOnRecipeUpdate)
+      {
         Messages.PromptForRecipe();
         stand.recipe.lemonsPerCup = Convert.ToDouble(Validation.GetData("How many LEMONS do you want in each cup of lemonade?", new Regex(regexDecimalNumbersString)));
         stand.recipe.sugarCubesPerCup = Convert.ToDouble(Validation.GetData("How many SUGAR CUBES do you want in each cup of lemonade?", new Regex(regexDecimalNumbersString)));
@@ -109,7 +115,8 @@ namespace LemonadeStandConsole
         Messages.PrintRecipeUpdated();
         Messages.PrintCurrentRecipe(stand.recipe);
 
-      } while (stayOnRecipeUpdate);
+        stayOnRecipeUpdate = false;
+      } ;
     }
 
     public void GameAllOver()
