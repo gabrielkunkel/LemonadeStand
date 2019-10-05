@@ -35,27 +35,23 @@ namespace LemonadeStandConsole
 
     private static void PrintErrorMessage(Regex regex)
     {
-      Match numbersMatch = regex.Match("89");
-      Match lettersMatch = regex.Match("abcdefghi");
-      Match yesNoMatch = regex.Match("yes");
 
-      if (numbersMatch.Success)
+      if (regex.Match("89").Success)
       {
         Console.WriteLine("This field only accepts numbers. Try again.");
       }
-      else if (yesNoMatch.Success)
+      else if (regex.Match("yes").Success)
       {
         Console.WriteLine("This field only accepts a *yes* or *no*. Try again.");
       }
-      else if (lettersMatch.Success)
+      else if (regex.Match("abcdefghi").Success)
       {
         Console.WriteLine("This field only accepts letters. Try again.");
       }
       else
       {
         Console.WriteLine("That is invalid input. Try again.");
-      }
-      
+      } 
 
     }
 
