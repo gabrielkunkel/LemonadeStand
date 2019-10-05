@@ -32,6 +32,11 @@ namespace LemonadeStandConsole
       Print("Do you want to purchase lemonade ingredients or cups?");
     }
 
+    public static void PrintCashRegisterTotal(Stand stand)
+    {
+      Print($"You now have ${stand.register.registerAmount} in the stand's cash register.");
+    }
+
     public static void PrintRecipeHeader()
     {
       Print("---------RECIPE----------");

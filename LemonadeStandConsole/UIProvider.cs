@@ -43,6 +43,8 @@ namespace LemonadeStandConsole
       Messages.PrintInventoryHeader();
       Messages.PrintCurrentInventory(stand);
       Messages.PrintEmptyLine();
+      Messages.PrintCashRegisterTotal(stand);
+      Messages.PrintEmptyLine();
 
       string yesOrNo = Validation.GetData("Do you want to purchase lemonade ingredients or cups?", new Regex(regexYesOrNo));
       if (yesOrNo == "yes")
@@ -65,6 +67,9 @@ namespace LemonadeStandConsole
         {
           stand.register.DebitRegisterAndCollectExpenses(totalCost);
           stand.inventory.AddToInventory(sugarCubes, lemons, iceCubes, cups);
+          Messages.PrintEmptyLine();
+          Messages.PrintCashRegisterTotal(stand);
+          Messages.PrintEmptyLine();
           stayOnInventoryUpdate = false;
         }
         else
