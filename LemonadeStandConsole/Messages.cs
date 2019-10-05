@@ -12,7 +12,14 @@ namespace LemonadeStandConsole
 
     public static void Introduction()
     {
+      Console.ForegroundColor = ConsoleColor.Cyan;
       Print("Welcome to Lenmonade Stand!");
+      Console.ResetColor();
+      Print("You have 7 days to make as much net profit as you can.");
+      Print("Before each day begins you have the ability to purchase ingredients and cups.");
+      Print("You also can adjust the recipe to make it more desirable. (Though it might not make much of a difference.)");
+      Print("By the way, your lemonade stand is in a fantastic location with 100 customers walking by each day.");
+      Print("The weather makes a big impact on which people will want lemonade.");
     }
 
     public static void PrintInventoryHeader()
