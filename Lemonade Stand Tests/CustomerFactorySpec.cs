@@ -21,7 +21,7 @@ namespace Lemonade_Stand_Tests
       weatherList.Add(new Weather("clear", 72.8, 0.50));
 
       // Act
-      List<Customer> result = mockCustomerFactory.Object.ProduceCustomers();
+      List<ICustomer> result = mockCustomerFactory.Object.ProduceCustomers();
 
       // Assert
       Assert.AreEqual(100, result.Count);

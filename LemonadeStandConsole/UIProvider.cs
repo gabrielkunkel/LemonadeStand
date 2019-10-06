@@ -46,7 +46,7 @@ namespace LemonadeStandConsole
       Messages.PrintCashRegisterTotal(stand);
       Messages.PrintEmptyLine();
 
-      string yesOrNo = Validation.GetData("Do you want to purchase lemonade ingredients or cups?", new Regex(regexYesOrNo));
+      string yesOrNo = Validation.GetData("Do you want to purchase lemonade ingredients or cups? (yes/no)", new Regex(regexYesOrNo));
       if (yesOrNo == "yes")
       {
         stayOnInventoryUpdate = true;
@@ -103,7 +103,7 @@ namespace LemonadeStandConsole
       Messages.PrintEmptyLine();
       Messages.PrintCurrentRecipe(stand.recipe);
 
-      string yesOrNo = Validation.GetData("Do you want to adjust the recipe and/or your price per cup?", new Regex(regexYesOrNo));
+      string yesOrNo = Validation.GetData("Do you want to adjust the recipe and/or your price per cup? (yes/no)", new Regex(regexYesOrNo));
       if (yesOrNo == "yes")
       {
         stayOnRecipeUpdate = true;

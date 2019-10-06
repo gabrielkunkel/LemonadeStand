@@ -18,9 +18,9 @@ namespace LemonadeStand
       this.numberOfCustomers = numberOfCustomers;
     }
 
-    public List<Customer> ProduceCustomers()
+    public List<ICustomer> ProduceCustomers()
     {
-      List<Customer> customers = new List<Customer>();
+      List<ICustomer> customers = new List<ICustomer>();
       for (int i = 0; i < this.numberOfCustomers; i += 1)
       {
         customers.Add(ProduceRandomCustomer());

@@ -17,7 +17,7 @@ namespace Lemonade_Stand_Tests
       Stand defaultStand = new Stand();
       today.weatherToday = new Weather();
       defaultStand.inventory.AddToInventory(1000, 1000, 1000, 1000);
-      today.customers = new List<Customer>();
+      today.customers = new List<ICustomer>();
       today.customers.Add(new Customer());
       today.customers.Add(new Customer());
       today.customers.Add(new Customer());
@@ -40,7 +40,7 @@ namespace Lemonade_Stand_Tests
       Day today = new Day(uIProvider, 1);
       Stand defaultStand = new Stand();
       today.weatherToday = new Weather("rainstorms", 60, 1);
-      today.customers = new List<Customer>();
+      today.customers = new List<ICustomer>();
       today.customers.Add(new Customer());
       today.customers.Add(new Customer());
       today.customers.Add(new Customer());
@@ -81,7 +81,7 @@ namespace Lemonade_Stand_Tests
       defaultStand.inventory.AddToInventory(1000, 1000, 1000, 1000);
       defaultStand.recipe.price = 0.35;
       today.weatherToday = new Weather("slushy", 60, 1);
-      today.customers = new List<Customer>();
+      today.customers = new List<ICustomer>();
       today.customers.Add(new Customer(0.50, weatherListFirstCustomer));
       today.customers.Add(new Customer(1.05, weatherListSecondCustomer));
       today.customers.Add(new Customer(0.40, weatherListThirdCustomer));

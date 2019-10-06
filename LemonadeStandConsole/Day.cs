@@ -7,7 +7,7 @@ namespace LemonadeStandConsole
   {
     public Weather weatherToday;
     public Weather weatherForecast;
-    public List<Customer> customers;
+    public List<ICustomer> customers;
     private UIProvider uIProvider;
     private int dayNumber;
 
@@ -30,7 +30,6 @@ namespace LemonadeStandConsole
       uIProvider.EndDay(player);
     }
 
-    // todo: break up DetermineTodaySales if possible
     // todo: write tests for DetermineTodaySales on if there is/isn't enough inventory
     // todo: write test for inventory decreases based on recipe
     public double DetermineTodaySales(Stand stand)
@@ -39,19 +38,14 @@ namespace LemonadeStandConsole
       foreach (var customer in customers)
       {
 
-        int thisCustomerWillBuy = customer.HowManyCupsWillCustomerPurchase(stand.recipe.price);
-
-        while (!stand.inventory.IsEnoughInventory(stand.recipe, thisCustomerWillBuy) && thisCustomerWillBuy > 0)
-        {
-          thisCustomerWillBuy -= 1;
-        }
+        int thisCustomerWillBuy = DetermineCupsCustomerWillBuyWithLimitedInventory(stand, customer);
 
         if (stand.inventory.IsEnoughInventory(stand.recipe))
         {
           if (CheckWeatherConditionsContained(customer.preferredWeatherConditions))
-          { 
+          {
             stand.inventory.ReduceInventoryByCurrentRecipe(thisCustomerWillBuy, stand.recipe);
-            cupsToBuyTotal += thisCustomerWillBuy;
+            cupsToBuyTotal += thisCustomerWillBuy; 
           }
         }
         else
@@ -66,7 +60,19 @@ namespace LemonadeStandConsole
       return cupsToBuyTotal * stand.recipe.price;
     }
 
-    public bool CheckWeatherConditionsContained(List<Weather> weatherConditions)
+    private int DetermineCupsCustomerWillBuyWithLimitedInventory(Stand stand, ICustomer customer)
+    {
+      int thisCustomerWillBuy = customer.HowManyCupsWillCustomerPurchase(stand.recipe.price);
+
+      while (!stand.inventory.IsEnoughInventory(stand.recipe, thisCustomerWillBuy) && thisCustomerWillBuy > 0)
+      {
+        thisCustomerWillBuy -= 1;
+      }
+
+      return thisCustomerWillBuy;
+    }
+
+    private bool CheckWeatherConditionsContained(List<Weather> weatherConditions)
     {
       foreach (var item in weatherConditions)
       {
