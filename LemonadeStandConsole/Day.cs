@@ -32,6 +32,7 @@ namespace LemonadeStandConsole
 
     // todo: write tests for DetermineTodaySales on if there is/isn't enough inventory
     // todo: write test for inventory decreases based on recipe
+    // todo: make test private and fix test
     public double DetermineTodaySales(Stand stand)
     {
       int cupsToBuyTotal = 0;
